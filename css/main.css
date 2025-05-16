@@ -1,0 +1,362 @@
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #560216;
+}
+
+a {
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+img {
+    width: 100%;
+}
+
+small {
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#about h1 {
+    padding-top: 60px;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #ffffff !important;
+}
+
+.navbar .nav-link {
+    line-height: 2.5;
+    font-size: 20px;
+    color: #2a68b2;
+}
+
+.navbar .nav-link.active {
+    color: #560216;
+}
+
+#home {
+    background: url(../img/forwardsfund-background.png);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#home p {
+    padding-top: 15px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #000000;
+    line-height: 1.5;
+}
+
+#about {
+    padding: 80px 0;
+    overflow-x: hidden;
+}
+
+.about-text {
+    padding-right: 30px;
+    font-size: 22px;
+}
+
+.boxes-container {
+    position: relative;
+    color: #560216;
+}
+
+.slide-box {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.slide-box.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+body {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2a68b2;
+}
+
+.counter-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 600px;
+    position: absolute;
+    top: 100vh; /* Start off-screen */
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    animation: riseUp 1.5s ease-in-out forwards;
+}
+
+@keyframes riseUp {
+    0% {
+        top: 100vh; /* Starts off-screen */
+        opacity: 0;
+    }
+    100% {
+        top: 50%; /* Moves to center */
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.counter-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.counter-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.counter-box {
+    text-align: center;
+}
+
+.counter-label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.social-icons a {
+    color: #560216;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #7a112a;
+}
+
+.logo-button {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-button img {
+    max-width: 300px;
+    height: auto;
+}
+
+.logo-button:hover {
+    transform: scale(1.1);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 20px;
+}
+
+.content-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.overlay-content h2 a {
+    color: #2a68b2;
+    font-size: 28px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.overlay-content h2 a:hover {
+    transform: scale(1.1);
+}
+
+.overlay-content p {
+    color: #000000;
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #560216;
+}
+
+.btn-close {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn-close:focus,
+.btn-close:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+}
+
+.btn-brand {
+    background-color: #560216;
+    color: #ffffff;
+    border-radius: 12px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-brand:hover {
+    background-color: #7a112a;
+    color: #ffffff;
+}
+
+.section-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#resources {
+    padding: 50px 0;
+}
+
+#resources h1 {
+    padding-top: 60px;
+}
+
+.resource-box {
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.resource-link {
+    display: inline-block;
+    color: #560216;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.resource-link:hover {
+    color: #7a112a;
+}
+
+#resources p {
+    color: #2a68b2;
+    font-weight: 500;
+    font-size: 32px;
+    padding-top: 20px;
+    max-width: 700px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#contact {
+    background: url('../img/nyc-skyline.png') center/cover no-repeat;
+}
+
+.translucent-box {
+    background-color: rgba(0, 123, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px 30px;
+    backdrop-filter: blur(5px);
+}
+
+.footer-top {
+    padding-top: 20px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.footer-top h5 {
+    color: #000000;
+    font-weight: 500;
+}
+
+.footer-top img {
+    width: 200px;
+}
+
+.footer-top .container .row {
+    padding-bottom: 30px;
+}
+
+footer .social-media-icons a {
+    color: #560216;
+}
+
+footer .social-media-icons a:hover {
+    color: #7a112a;
+}
