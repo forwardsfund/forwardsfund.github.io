@@ -496,6 +496,12 @@ body {
     background: url('../img/nyc-skyline.png') center/cover no-repeat;
 }
 
+.form-control:focus {
+    outline: none;
+    box-shadow: none !important;
+    border-color: #ced4da;
+}
+
 .translucent-box {
     background-color: rgba(0, 123, 255, 0.2);
     border-radius: 15px;
