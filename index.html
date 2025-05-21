@@ -106,7 +106,7 @@
         <div class="row">
             <div class="col-12 section-intro">
                 <h1>Portfolio</h1>
-                <p><em><strong>Forwards Fund</strong></em> invests in innovative startups across numerous tech-based sectors including:</p>
+                <p><em><strong>Forwards Fund</strong></em> invests in and supports innovative startups across numerous tech-based sectors including:</p>
                 <p><strong>AI & Data Science</strong></p>
                 <p><strong>Energy & Sustainability</strong></p>
                 <p><strong>Media & Education</strong></p>
@@ -115,8 +115,20 @@
         <div class="row justify-content-center">
             <div class="col-md-4 text-center">
                 <button class="logo-button" onclick="openOverlay('company1-overlay')">
+                    <img src="./img/vexergy-logo.png" alt="Vexergy Logo"
+                    style="width: 250px; height: auto; border-radius: 15px;">
+                </button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="logo-button" onclick="openOverlay('company2-overlay')">
+                    <img src="./img/carbonclair-logo.png" alt="CarbonCLAIR Logo"
+                    style="width: 300px; height: auto; border-radius: 15px;">
+                </button>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="logo-button" onclick="openOverlay('company3-overlay')">
                     <img src="./img/overcoffeeai-logo.png" alt="Over Coffee AI Logo"
-                         style="width: 150px; height: auto; border-radius: 15px;">
+                         style="width: 90px; height: auto; border-radius: 15px;">
                 </button>
             </div>
         </div>
@@ -126,13 +138,39 @@
 <div id="company1-overlay" class="overlay">
     <div class="overlay-content">
         <div class="content-box">
-            <h2><a href="https://www.linkedin.com/company/overcoffee-org" target="_blank">Over Coffee AI</a></h2>
-            <p>A web-based AI chat service providing mental health care, life consulting, and motivational resources to build a positive community focused on self-improvement.</p>
+            <h2><a href="https://www.vexergy.com" target="_blank">Vexergy</a></h2>
+            <p>The world's first AI-driven software platform optimizing sensor placement and modeling data acquisition systems for engineering applications.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
+            </div>
+        </div>
+        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company1-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
+    </div>
+</div>
+
+<div id="company2-overlay" class="overlay">
+    <div class="overlay-content">
+        <div class="content-box">
+            <h2><a href="https://carbonclair.github.io" target="_blank">CarbonCLAIR</a></h2>
+            <p>An innovative carbon-capturing system that sustainably filters particulate matter, improving air quality and livelihood in urban environments.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/carbonclair"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
+            </div>
+        </div>
+        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company2-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
+    </div>
+</div>
+
+<div id="company3-overlay" class="overlay">
+    <div class="overlay-content">
+        <div class="content-box">
+            <h2><a href="https://overcoffeeai.github.io" target="_blank">Over Coffee AI</a></h2>
+            <p>A web-based AI chat service providing mental health care, life consulting, and motivational resources to build a community focused on self-improvement.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/overcoffee-org"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
             </div>
         </div>
-        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company1-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
+        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company3-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
     </div>
 </div>
 
