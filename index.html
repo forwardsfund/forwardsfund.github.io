@@ -59,7 +59,7 @@
                     <h1 class="counter-title">Taking venture capital in a new direction...</h1>
                     <div class="counter-row">
                         <div class="counter-box">
-                            <span class="currency">$</span><count-up>20,000</count-up>
+                            <span class="currency">$</span><count-up>25,000</count-up>
                             <p class="counter-label">Unallocated Funds</p>
                         </div>
                         <div class="counter-box">
@@ -111,44 +111,36 @@
 </section>
 
 <section id="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 section-intro">
-                <h1>Portfolio</h1>
-                <p><em><strong>Forwards Fund</strong></em> invests in and supports innovative startups across numerous tech-based sectors including:</p>
-                <p><strong>AI & Data Science</strong></p>
-                <p><strong>Energy & Sustainability</strong></p>
-                <p><strong>Media & Education</strong></p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-4 text-center">
-                <button class="logo-button" onclick="openOverlay('company1-overlay')">
-                    <img src="./img/vexergy-logo.png" alt="Vexergy Logo"
-                    style="width: 250px; height: auto; border-radius: 15px;">
-                </button>
-            </div>
-            <div class="col-md-4 text-center">
-                <button class="logo-button" onclick="openOverlay('company2-overlay')">
-                    <img src="./img/carbonclair-logo.png" alt="CarbonCLAIR Logo"
-                    style="width: 300px; height: auto; border-radius: 15px;">
-                </button>
-            </div>
-            <div class="col-md-4 text-center">
-                <button class="logo-button" onclick="openOverlay('company3-overlay')">
-                    <img src="./img/overcoffeeai-logo.png" alt="Over Coffee AI Logo"
-                         style="width: 90px; height: auto; border-radius: 15px;">
-                </button>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 section-intro">
+        <h1>Portfolio</h1>
+        <p><em><strong>Forwards Fund</strong></em> invests in and supports innovative startups across numerous categories including:</p>
+        <p><strong>Artifical Intelligence</strong></p>
+        <p><strong>Content Creation</strong></p>
+        <p><strong>Industrial Technology</strong></p>
+      </div>
     </div>
+
+    <div class="logo-container">
+      <button class="logo-button" onclick="openOverlay('company1-overlay')">
+        <img src="./img/vexergy-logo.png" alt="Vexergy Logo" />
+      </button>
+      <button class="logo-button" onclick="openOverlay('company3-overlay')">
+        <img src="./img/overcoffeeai-logo.png" alt="Over Coffee AI Logo" />
+      </button>
+      <button class="logo-button" onclick="openOverlay('company2-overlay')">
+        <img src="./img/carbonclair-logo.png" alt="CarbonCLAIR Logo" />
+      </button>
+    </div>
+  </div>
 </section>
 
 <div id="company1-overlay" class="overlay">
     <div class="overlay-content">
         <div class="content-box">
             <h2><a href="https://www.vexergy.com" target="_blank">Vexergy</a></h2>
-            <p>The world's first AI-driven software platform optimizing sensor placement and modeling data acquisition systems for engineering applications.</p>
+            <p>The world's first modular Autonomous Mobile Robot (AMR) platform for extreme environments.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
             </div>
@@ -160,10 +152,10 @@
 <div id="company2-overlay" class="overlay">
     <div class="overlay-content">
         <div class="content-box">
-            <h2><a href="https://carbonclair.github.io" target="_blank">CarbonCLAIR</a></h2>
-            <p>An innovative carbon-capturing system that sustainably filters particulate matter, improving air quality and livelihood in urban environments.</p>
+            <h2><a href="https://overcoffee.ai" target="_blank">Over Coffee AI</a></h2>
+            <p>A web-based AI service changing the world of mental health through reflection, introspection, and the quest for meaning in life.</p>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/company/carbonclair"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
+                <a href="https://www.linkedin.com/company/overcoffee-org"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
             </div>
         </div>
         <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company2-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
@@ -173,10 +165,10 @@
 <div id="company3-overlay" class="overlay">
     <div class="overlay-content">
         <div class="content-box">
-            <h2><a href="https://overcoffeeai.github.io" target="_blank">Over Coffee AI</a></h2>
-            <p>A web-based AI chat service providing mental health care, life consulting, and motivational resources to build a community focused on self-improvement.</p>
+            <h2><a href="https://carbonclair.github.io" target="_blank">CarbonCLAIR</a></h2>
+            <p>An innovative carbon-capturing system that sustainably filters particulate matter, improving air quality and livelihood in urban settings.</p>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/company/overcoffee-org"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
+                <a href="https://www.linkedin.com/company/carbonclair"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
             </div>
         </div>
         <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company3-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
