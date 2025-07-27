@@ -325,7 +325,7 @@ body {
 }
 
 .social-icons a:hover {
-    color: #7a112a;
+    color: #2a68b2;
 }
 
 .logo-container {
@@ -348,15 +348,11 @@ body {
   max-width: 300px;
   width: 100%;
   height: auto;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .logo-button:hover {
   transform: scale(1.1);
-}
-
-.logo-button:nth-child(2) img {
-  max-width: 150px;
 }
 
 @media (max-width: 768px) {
@@ -453,7 +449,7 @@ body {
 }
 
 .btn-brand:hover {
-    background-color: #7a112a;
+    background-color: #2a68b2;
     color: #ffffff;
 }
 
@@ -509,7 +505,7 @@ body {
 }
 
 .resource-link:hover {
-    color: #7a112a;
+    color: #2a68b2;
 }
 
 #resources p {
@@ -564,5 +560,5 @@ footer .social-media-icons a {
 }
 
 footer .social-media-icons a:hover {
-    color: #7a112a;
+    color: #2a68b2;
 }
