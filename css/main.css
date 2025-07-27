@@ -404,6 +404,7 @@ body {
 
 .overlay-content h2 a:hover {
     transform: scale(1.1);
+    color: #560216;
 }
 
 .overlay-content p {
@@ -548,7 +549,7 @@ body {
 }
 
 .footer-top img {
-    width: 200px;
+    width: 150px;
 }
 
 .footer-top .container .row {
