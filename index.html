@@ -42,6 +42,9 @@
                 <a class="nav-link" href="#portfolio">Portfolio</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#network">Network</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#resources">Resources</a>
               </li>
               <li class="nav-item">
@@ -87,7 +90,7 @@
             <div class="col-lg-6">
                 <div class="about-text">
                     <p>Forwards Fund is a group of college students eager to help build the world's next biggest companies. 
-                        We focus on applying first principles problem solving to college startups in their pre-seed or ideation stages. 
+                        We focus on applying first principles problem-solving to college startups in their pre-seed or ideation stages. 
                     </p>
                     <p>
                         We take high risks on people and ideas that we believe have the potential to succeed even when nobody else does.
@@ -115,7 +118,7 @@
     <div class="row">
       <div class="col-12 section-intro">
         <h1>Portfolio</h1>
-        <p><em><strong>Forwards Fund</strong></em> invests in and supports innovative startups across numerous categories including:</p>
+        <p><em><strong>Forwards Fund</strong></em> invests in innovative startups across numerous categories including:</p>
         <p><strong>Artifical Intelligence</strong></p>
         <p><strong>Content Creation</strong></p>
         <p><strong>Industrial Technology</strong></p>
@@ -124,13 +127,7 @@
 
     <div class="logo-container">
       <button class="logo-button" onclick="openOverlay('company1-overlay')">
-        <img src="./img/vexergy-logo-light.png" alt="Vexergy Logo" />
-      </button>
-      <button class="logo-button" onclick="openOverlay('company2-overlay')">
         <img src="./img/overcoffeeai-logo.png" alt="Over Coffee AI Logo" />
-      </button>
-      <button class="logo-button" onclick="openOverlay('company3-overlay')">
-        <img src="./img/carbonclair-logo.png" alt="CarbonCLAIR Logo" />
       </button>
     </div>
   </div>
@@ -139,41 +136,63 @@
 <div id="company1-overlay" class="overlay">
     <div class="overlay-content">
         <div class="content-box">
-            <h2><a href="https://www.vexergy.com" target="_blank">Vexergy</a></h2>
-            <p>The world's first modular Autonomous Mobile Robot (AMR) platform for extreme environments.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/company/vexergy"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-            </div>
-        </div>
-        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company1-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
-    </div>
-</div>
-
-<div id="company2-overlay" class="overlay">
-    <div class="overlay-content">
-        <div class="content-box">
             <h2><a href="https://overcoffee.ai" target="_blank">Over Coffee AI</a></h2>
             <p>A web-based AI service changing the world of mental health through reflection, introspection, and the quest for meaning in life.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/overcoffee-org"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
             </div>
         </div>
-        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company2-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
+        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company1-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
     </div>
 </div>
 
-<div id="company3-overlay" class="overlay">
-    <div class="overlay-content">
-        <div class="content-box">
-            <h2><a href="https://carbonclair.github.io" target="_blank">CarbonCLAIR</a></h2>
-            <p>An innovative carbon-capturing system that sustainably filters particulate matter, improving air quality and livelihood in urban settings.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/company/carbonclair"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-            </div>
+<section id="network">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 section-intro">
+        <h1>Network</h1>
+        <p><em><strong>Forwards Fund</strong></em> supports, advises, and endorses a growing ecosystem of companies including:</p>
+        <br>
+        <div class="table-responsive">
+          <table class="network-table">
+            <tbody>
+              <tr>
+                <td>BladePipe</td>
+                <td>
+                  <a href="https://www.bladepipe.com/" target="_blank" rel="noopener noreferrer">
+                    bladepipe.com
+                  </a>
+                </td>
+                <td>
+                  <div class="social-media-icons">
+                    <a href="https://www.linkedin.com/company/bladepipe" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-linkedin"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>CarbonCLAIR</td>
+                <td>
+                  <a href="https://www.carbonclair.com" target="_blank" rel="noopener noreferrer">
+                    carbonclair.com
+                  </a>
+                </td>
+                <td>
+                  <div class="social-media-icons">
+                    <a href="https://www.linkedin.com/company/carbonclair" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-linkedin"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company3-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
 <section id="resources">
     <div class="container">
@@ -261,7 +280,7 @@
         <div class="row">
         <div class="col-md-4">
             <img src="img/forwardsfund-logo.png" alt="Forwards Fund">
-            <h5>Applying a first principles approach to early-stage startup funding.</h5>
+            <h5>The Barstool of Venture Capital and Startups</h5>
             <div class="social-media-icons">
             <a href="https://www.linkedin.com/company/forwardsfund"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
             <a href="https://x.com/forwardsfund"><i class="bi bi-twitter-x" style="font-size: 2rem;"></i></a>

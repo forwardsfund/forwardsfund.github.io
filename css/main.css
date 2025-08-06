@@ -345,7 +345,7 @@ body {
 }
 
 .logo-button img {
-  max-width: 300px;
+  max-width: 250px;
   width: 100%;
   height: auto;
   border-radius: 25px;
@@ -395,7 +395,7 @@ body {
 }
 
 .overlay-content h2 a {
-    color: #2a68b2;
+    color: #560216;
     font-size: 28px;
     text-decoration: none;
     transition: transform 0.3s ease-in-out;
@@ -404,11 +404,11 @@ body {
 
 .overlay-content h2 a:hover {
     transform: scale(1.1);
-    color: #560216;
+    color: #2a68b2;
 }
 
 .overlay-content p {
-    color: #000000;
+    color: #2a68b2;
     font-size: 20px;
     line-height: 1.6;
     max-width: 500px;
@@ -468,6 +468,57 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+#network p {
+    color: #2a68b2;
+    font-weight: 500;
+    font-size: 32px;
+    padding-top: 20px;
+    max-width: 700px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.network-table {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+.network-table td {
+  border: none;
+  padding: 12px 8px;
+  text-align: center;
+  vertical-align: middle;
+  color: #560216;
+  font-size: 1.7rem;
+}
+
+.network-table tr:not(:last-child) {
+  border-bottom: 4px solid #dddddd;
+}
+
+.network-table a {
+  color: #2a68b2;
+  text-decoration: none;
+}
+
+.network-table a:hover {
+  text-decoration: underline;
+}
+
+.social-media-icons a {
+  color: #560216;
+  font-size: 1.9rem;
+  transition: color 0.3s ease;
+}
+
+.social-media-icons a:hover {
+  color: #2a68b2;
 }
 
 #resources {
@@ -544,8 +595,8 @@ body {
 }
 
 .footer-top h5 {
-    color: #000000;
-    font-weight: 500;
+    color: #2a68b2;
+    font-weight: 700;
 }
 
 .footer-top img {
