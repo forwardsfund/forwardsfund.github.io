@@ -521,6 +521,131 @@ body {
   color: #2a68b2;
 }
 
+#team {
+  background-color: #ffffff;
+  color: #560216;
+}
+
+.team-member {
+  background-color: transparent;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.member-name {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #2a68b2;
+}
+
+.team-member small {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #560216;
+  margin-bottom: 10px;
+}
+
+.team-member-image {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 150%;
+  cursor: pointer;
+}
+
+.team-member-bg {
+  transition: all 0.4s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: center;
+}
+
+.social-media-icons-team {
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: bottom 0.4s ease;
+}
+
+.team-member-image:hover .social-media-icons-team {
+  bottom: 0;
+}
+
+.team-member:hover .team-member-bg {
+  transform: translateY(-60px);
+}
+
+.social-media-icons-team i {
+  font-size: 1.8rem;
+  color: #560216;
+  transition: transform 0.3s ease;
+}
+
+.social-media-icons-team i:hover {
+  color: #2a68b2;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+}
+
+.member-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.overlay-title-team {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2a68b2;
+}
+
+.overlay-content-team {
+  background-color: #ffffff;
+  color: #560216;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.close-btn-team {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #560216;
+}
+
 #resources {
     padding: 50px 0;
 }
