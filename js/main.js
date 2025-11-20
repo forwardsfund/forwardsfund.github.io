@@ -34,3 +34,13 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 observer.observe(document.querySelector('#about'));
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
