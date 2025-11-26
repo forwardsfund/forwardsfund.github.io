@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Forwards Fund</title>
     <script type="application/ld+json">
       {
@@ -16,11 +17,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-    body { 
-        margin: 0; 
-        overflow: hidden; 
+    body {
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Space Mono', monospace;
+        background: #000000;
     }
-    canvas { 
+    canvas {
         display: block;
     }
     #navbar {
@@ -28,91 +31,207 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 120px;
-        background-color: #000000;
+        height: 100px;
+        background: linear-gradient(180deg, #000000 0%, #000000dd 100%);
+        backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
-        padding-left: 5px;
-        padding-right: 10px;
+        padding: 0 20px;
         z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
     #navbar img {
-        height: 120px;
+        height: 80px;
+        transition: transform 0.3s ease;
+    }
+    #navbar img:hover {
+        transform: scale(1.05);
     }
     #navbar-text {
         color: #ffffff;
-        font-family: 'Space Mono', sans-serif;
-        font-size: 32px;
-        font-weight: bold; 
-        margin-left: 1px;
+        font-family: 'Space Mono', monospace;
+        font-size: 28px;
+        font-weight: bold;
+        margin-left: 8px;
+        letter-spacing: 0.5px;
     }
     #contact-button {
       margin-left: auto;
-      margin-right: 45px;
-      padding: 10px 18px;
-      background-color: #ffffff;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
       color: #000000;
-      font-family: 'Space Mono', sans-serif;
-      font-size: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 15px;
       font-weight: bold;
-      border: none;
-      border-radius: 6px;
+      border: 2px solid transparent;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
     }
     #contact-button:hover {
-      background-color: #ffffff60;
+      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.3);
     }
-    #infoPanel { 
-        position: absolute; 
-        top: 30%; 
-        left: 65%; 
-        transform: translateY(-50%); 
+    #contact-button:active {
+      transform: translateY(0);
+    }
+    #infoPanel {
+        position: fixed;
+        top: 150px;
+        right: 40px;
         color: #ffffff;
-        font-family: 'Space Mono', sans-serif;
-        max-width: 300px; 
+        font-family: 'Space Mono', monospace;
+        max-width: 380px;
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+        backdrop-filter: blur(15px);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    #infoPanel.active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
     }
     #title {
-        font-size: 28px; 
-        font-weight: bold; 
-        font-family: 'Space Mono', sans-serif;
-        margin-bottom: 20px;
+        font-size: 26px;
+        font-weight: bold;
+        font-family: 'Space Mono', monospace;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     #description {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #e0e0e0;
     }
     #hoverLabel {
         position: absolute;
-        padding: 6px 10px;
-        background: rgba(0,0,0,0.7);
+        padding: 8px 14px;
+        background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 100%);
         color: #ffffff;
-        font-family: 'Space Mono', sans-serif;
-        font-size: 14px;
-        border-radius: 4px;
+        font-family: 'Space Mono', monospace;
+        font-size: 13px;
+        border-radius: 6px;
         pointer-events: none;
         display: none;
+        z-index: 2000;
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     #logo-container {
       position: relative;
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
     #logo-popup {
       position: absolute;
-      top: 130px;
+      top: 110px;
       left: 0;
-      background: rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
+      backdrop-filter: blur(15px);
       color: #ffffff;
-      font-family: 'Space Mono', sans-serif;
-      font-size: 14px;
-      padding: 12px 16px;
-      border-radius: 6px;
-      max-width: 350px;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 16px 20px;
+      border-radius: 8px;
+      max-width: 380px;
       display: none;
       z-index: 2000;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
     }
     #logo-container:hover #logo-popup {
       display: block;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      #navbar {
+        height: 70px;
+        padding: 0 12px;
+      }
+      #navbar img {
+        height: 55px;
+      }
+      #navbar-text {
+        font-size: 18px;
+        margin-left: 6px;
+      }
+      #contact-button {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+      #infoPanel {
+        top: auto;
+        bottom: 80px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%) translateY(20px);
+        max-width: calc(100% - 40px);
+        width: 90%;
+        padding: 16px;
+      }
+      #infoPanel.active {
+        transform: translateX(-50%) translateY(0);
+      }
+      #title {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      #description {
+        font-size: 13px;
+      }
+      #logo-popup {
+        top: 80px;
+        max-width: calc(100vw - 40px);
+        font-size: 12px;
+        padding: 12px 16px;
+      }
+      #hoverLabel {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #navbar {
+        height: 60px;
+        padding: 0 8px;
+      }
+      #navbar img {
+        height: 45px;
+      }
+      #navbar-text {
+        font-size: 14px;
+        display: none;
+      }
+      #contact-button {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+      #infoPanel {
+        bottom: 70px;
+        padding: 14px;
+      }
+      #title {
+        font-size: 18px;
+      }
+      #description {
+        font-size: 12px;
+      }
     }
     </style>
   </head>
@@ -152,7 +271,13 @@
   fontLink.href = 'https://fonts.googleapis.com/css2?family=Space+Mono&display=swap';
   document.head.appendChild(fontLink);
 
-  const NAVBAR_HEIGHT = 120;
+  function getNavbarHeight() {
+    if (window.innerWidth <= 480) return 60;
+    if (window.innerWidth <= 768) return 70;
+    return 100;
+  }
+
+  let NAVBAR_HEIGHT = getNavbarHeight();
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#000000');
@@ -274,37 +399,53 @@
     }
   });
 
-  window.addEventListener('click', (event) => {
+  function handleInteraction(clientX, clientY) {
     const mouse = new THREE.Vector2();
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -((event.clientY - NAVBAR_HEIGHT) / (window.innerHeight - NAVBAR_HEIGHT)) * 2 + 1;
+    mouse.x = (clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -((clientY - NAVBAR_HEIGHT) / (window.innerHeight - NAVBAR_HEIGHT)) * 2 + 1;
 
     const raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mouse, camera);
 
     const intersects = raycaster.intersectObjects(prisms);
+    const infoPanel = document.getElementById('infoPanel');
+    const titleDiv = document.getElementById('title');
+    const descriptionDiv = document.getElementById('description');
 
     if (intersects.length > 0) {
       const clickedPrism = intersects[0].object;
       activePrism = (activePrism === clickedPrism) ? null : clickedPrism;
 
-      const titleDiv = document.getElementById('title');
-      const descriptionDiv = document.getElementById('description');
       if (activePrism) {
         titleDiv.textContent = clickedPrism.userData.title;
         descriptionDiv.textContent = clickedPrism.userData.description;
+        infoPanel.classList.add('active');
       } else {
         titleDiv.textContent = "";
         descriptionDiv.textContent = "";
+        infoPanel.classList.remove('active');
       }
     } else {
       activePrism = null;
-      document.getElementById('title').textContent = "";
-      document.getElementById('description').textContent = "";
+      titleDiv.textContent = "";
+      descriptionDiv.textContent = "";
+      infoPanel.classList.remove('active');
+    }
+  }
+
+  window.addEventListener('click', (event) => {
+    handleInteraction(event.clientX, event.clientY);
+  });
+
+  window.addEventListener('touchend', (event) => {
+    if (event.changedTouches.length > 0) {
+      const touch = event.changedTouches[0];
+      handleInteraction(touch.clientX, touch.clientY);
     }
   });
 
   window.addEventListener('resize', () => {
+    NAVBAR_HEIGHT = getNavbarHeight();
     const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
     camera.left = -d * aspect;
     camera.right = d * aspect;
@@ -313,6 +454,7 @@
     camera.updateProjectionMatrix();
 
     renderer.setSize(window.innerWidth, window.innerHeight - NAVBAR_HEIGHT);
+    renderer.domElement.style.marginTop = NAVBAR_HEIGHT + 'px';
   });
 </script>
 
@@ -364,7 +506,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  pointer-events: none; /* ensures footer doesn't block canvas clicks */
+  pointer-events: none;
 }
 
 .social-media-icons {
@@ -372,82 +514,165 @@ footer {
   bottom: 15px;
   left: 20px;
   display: flex;
-  gap: 12px;
+  gap: 15px;
   pointer-events: auto;
+  z-index: 100;
 }
 
 .social-media-icons a {
   color: #ffffff;
   font-size: 1.5rem;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .social-media-icons a:hover {
-  color: #ffffff60;
+  color: #cccccc;
+  transform: translateY(-2px) scale(1.1);
+  text-shadow: 0 4px 12px rgba(255,255,255,0.3);
 }
 
 .footer-copy {
   position: fixed;
-  bottom: 8px;
+  bottom: 10px;
   right: 20px;
   color: #ffffff;
-  font-family: 'Space Mono', sans-serif;
-  font-size: 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
   pointer-events: auto;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .social-media-icons {
+    bottom: 12px;
+    left: 15px;
+    gap: 12px;
+  }
+  .social-media-icons a {
+    font-size: 1.3rem;
+  }
+  .footer-copy {
+    bottom: 8px;
+    right: 15px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-media-icons {
+    bottom: 10px;
+    left: 10px;
+    gap: 10px;
+  }
+  .social-media-icons a {
+    font-size: 1.2rem;
+  }
+  .footer-copy {
+    font-size: 9px;
+    bottom: 6px;
+    right: 10px;
+  }
 }
 </style>
 <style>
 .modal-content {
-  background-color: #000000;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
   color: #ffffff;
-  font-family: 'Space Mono', sans-serif;
-  border-radius: 8px;
-  border: 1px solid #444444;
+  font-family: 'Space Mono', monospace;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.8);
 }
 .modal-header {
-  border-bottom: 1px solid #444444;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 1.25rem 1.5rem;
 }
 .modal-title {
   color: #ffffff;
   font-weight: bold;
+  font-size: 1.75rem;
+}
+.modal-body {
+  padding: 1.5rem;
 }
 .btn-close {
   filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.btn-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 .btn-close:focus {
-    outline: 0;
-    box-shadow: none;
-}
-.modal-body label {
-  color: #ffffff;
-}
-.modal-body .form-control {
-  background-color: #111111;
-  color: #ffffff;
-  border: 1px solid #555555;
-}
-.modal-body .form-control:focus {
-  background-color: #111111;
-  color: #ffffff;
-  border-color: #888888;
+  outline: 0;
   box-shadow: none;
 }
+.modal-body label {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+.modal-body .form-control {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+  font-family: 'Space Mono', monospace;
+}
+.modal-body .form-control:focus {
+  background-color: #141414;
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+}
+.modal-body .form-control::placeholder {
+  color: rgba(255,255,255,0.3);
+}
 .btn-brand {
-  padding: 10px 18px;
-  background-color: #ffffff;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
   color: #000000;
-  font-family: 'Space Mono', sans-serif;
-  font-size: 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
   font-weight: bold;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
 }
 .btn-brand:hover {
-  background-color: #ffffff60;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
   color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+}
+.btn-brand:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  .modal-body label {
+    font-size: 1.25rem;
+  }
+  .modal-body .form-control {
+    font-size: 14px;
+  }
+  .btn-brand {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
 </style>
 <script src="js/bootstrap.bundle.min.js"></script>
