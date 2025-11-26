@@ -1,9 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <title>Forwards Fund</title>
     <script type="application/ld+json">
       {
@@ -14,303 +12,309 @@
       }
     </script>
     <meta name="google-site-verification" content="csNoXvHKYi9vydth8mjSBx8yq4PhMvScKV_jiWPXJIs" />
-    <script type="module" src="https://cdn.jsdelivr.net/gh/lekoala/formidable-elements@master/dist/count-up.min.js"></script>
-    <link rel="icon" type="image/ico" href="img/forwardsfund-logo.png">
+    <link rel="icon" type="image/ico" href="./forwards-fund-logo.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+    body { 
+        margin: 0; 
+        overflow: hidden; 
+    }
+    canvas { 
+        display: block;
+    }
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background-color: #000000;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+        padding-right: 10px;
+        z-index: 1000;
+    }
+    #navbar img {
+        height: 120px;
+    }
+    #navbar-text {
+        color: #ffffff;
+        font-family: 'Space Mono', sans-serif;
+        font-size: 32px;
+        font-weight: bold; 
+        margin-left: 1px;
+    }
+    #contact-button {
+      margin-left: auto;
+      margin-right: 45px;
+      padding: 10px 18px;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: 'Space Mono', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    #contact-button:hover {
+      background-color: #ffffff60;
+    }
+    #infoPanel { 
+        position: absolute; 
+        top: 30%; 
+        left: 65%; 
+        transform: translateY(-50%); 
+        color: #ffffff;
+        font-family: 'Space Mono', sans-serif;
+        max-width: 300px; 
+    }
+    #title {
+        font-size: 28px; 
+        font-weight: bold; 
+        font-family: 'Space Mono', sans-serif;
+        margin-bottom: 20px;
+    }
+    #description {
+        font-size: 16px;
+    }
+    #hoverLabel {
+        position: absolute;
+        padding: 6px 10px;
+        background: rgba(0,0,0,0.7);
+        color: #ffffff;
+        font-family: 'Space Mono', sans-serif;
+        font-size: 14px;
+        border-radius: 4px;
+        pointer-events: none;
+        display: none;
+    }
+    #logo-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #logo-popup {
+      position: absolute;
+      top: 130px;
+      left: 0;
+      background: rgba(0,0,0,0.6);
+      color: #ffffff;
+      font-family: 'Space Mono', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      max-width: 350px;
+      display: none;
+      z-index: 2000;
+    }
+    #logo-container:hover #logo-popup {
+      display: block;
+    }
+    </style>
   </head>
+<body>
 
-  <body data-bs-spy="scroll" data-bs-target=".navbar">
-    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-          <a class="navbar-brand" href="#home">
-            <img src="img/forwardsfund-logo-full.png" alt="Forwards Fund" width="100" height="80">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#network">Network</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#team">Team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#resources">Resources</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-          </div>
-        </div>
-      </nav>
-    
-<section id="home">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10">
-                <div class="counter-container">
-                    <h1 class="counter-title">Taking venture capital in a new direction...</h1>
-                    <div class="counter-row">
-                        <div class="counter-box">
-                            <span class="currency">$</span><count-up>25,000</count-up>
-                            <p class="counter-label">Funds Invested</p>
-                        </div>
-                        <div class="counter-box">
-                            <count-up>4</count-up>
-                            <p class="counter-label">Startups Supported</p>
-                        </div>
-                        <div class="counter-box">
-                            <span class="currency">$</span><count-up>3,000</count-up>
-                            <p class="counter-label">Average ROI</p>
-                        </div>
-                    </div>
-                    <a href="#about" class="btn btn-brand mt-4">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="about">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 section-intro">
-                <h1>Who We Are</h1>
-            </div>
-            <div class="col-lg-6">
-                <div class="about-text">
-                    <p>Started by a group of college students passionate about entrepreneurship and innovation, Forwards Fund set out to do whatever it takes to help early-stage founders in their pre-seed or ideation phase to secure venture capital funding and move their dream forwards.</p>
-                    <p>We come alongside founders and offer any form of help we can provide. Our team is experienced across numerous domains including business development, marketing, sales, branding, legal compliance, data analytics, software development, engineering, accounting, finance, and more.</p>
-                    <p>We don't have everything figured out, but we seek to learn and grow with you because there is only one direction to go... <em>forwards.</em></p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="boxes-container">
-                    <div class="slide-box box-1">First Principles Approach</div>
-                    <div class="slide-box box-2">Hands-On Guidance</div>
-                    <div class="slide-box box-3">Startup Incubation</div>
-                    <div class="slide-box box-4">Flexible Investment Options</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 section-intro">
-        <h1>Portfolio</h1>
-        <p><em><strong>Forwards Fund</strong></em> invests in innovative startups across numerous categories including:</p>
-        <p><strong>Artifical Intelligence</strong></p>
-        <p><strong>Social Media</strong></p>
-        <p><strong>Industrial Technology</strong></p>
-      </div>
-    </div>
-
-    <div class="logo-container">
-      <button class="logo-button" onclick="openOverlay('company1-overlay')">
-        <img src="./img/overcoffeeai-logo.png" alt="Over Coffee AI Logo" />
-      </button>
+<div id="navbar">
+  <div id="logo-container">
+    <img src="./forwards-fund-logo.png" alt="Forwards Fund" id="logo">
+    <span id="navbar-text">Forwards Fund</span>
+    <div id="logo-popup">
+      Forwards Fund is a college-based venture capital firm that builds and invests in early-stage deep tech startups solving the biggest problems in critical infrastructure. With a first principles approach and pioneering ambition, we help tomorrow's leaders in engineering and technology move the world <i>forwards</i>.
     </div>
   </div>
-</section>
-
-<div id="company1-overlay" class="overlay">
-    <div class="overlay-content">
-        <div class="content-box">
-            <h2><a href="https://overcoffee.ai" target="_blank">Over Coffee AI</a></h2>
-            <p>A web-based AI service changing the world of mental health through reflection, introspection, and the quest for meaning in life.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/company/overcoffee-org"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-            </div>
-        </div>
-        <button type="button" class="btn-close" aria-label="Close" onclick="closeOverlay('company1-overlay')" style="position: absolute; top: 10px; right: 10px;"></button>
-    </div>
+  <button id="contact-button" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
+    Contact Us
+  </button>
 </div>
+<script>
+  const logo = document.getElementById('logo');
+  const popup = document.getElementById('logo-popup');
 
-<section id="network">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 section-intro">
-        <h1>Network</h1>
-        <p><em><strong>Forwards Fund</strong></em> supports, advises, and endorses a growing ecosystem of companies including:</p>
-        <br>
-        <div class="table-responsive">
-          <table class="network-table">
-            <tbody>
-              <tr>
-                <td>BladePipe</td>
-                <td>
-                  <a href="https://www.bladepipe.com/" target="_blank" rel="noopener noreferrer">
-                    bladepipe.com
-                  </a>
-                </td>
-                <td>
-                  <div class="social-media-icons">
-                    <a href="https://www.linkedin.com/company/bladepipe" target="_blank" rel="noopener noreferrer">
-                      <i class="bi bi-linkedin"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>CarbonCLAIR</td>
-                <td>
-                  <a href="https://www.carbonclair.com" target="_blank" rel="noopener noreferrer">
-                    carbonclair.com
-                  </a>
-                </td>
-                <td>
-                  <div class="social-media-icons">
-                    <a href="https://www.linkedin.com/company/carbonclair" target="_blank" rel="noopener noreferrer">
-                      <i class="bi bi-linkedin"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  logo.addEventListener('click', () => {
+    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+  });
+</script>
 
-<section id="team" class="text-center py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 section-intro mb-5">
-        <h1>Our Team</h1>
-      </div>
+<div id="infoPanel">
+  <div id="title"></div>
+  <div id="description"></div>
+</div>
+<div id="hoverLabel"></div>
 
-      <div class="col-md-3 col-sm-6 team-member mb-5">
-        <div class="team-member-image" onclick="openOverlay('nicolas-bio')">
-          <div class="team-member-bg" style="background-image: url('img/forwardsfund-nicolas.jpg');"></div>
-        </div>
-        <h2 class="member-name">Nicolas</h2>
-        <small>Head of Operations</small>
-      </div>
+<script src="https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js"></script>
+<script>
+  const fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Space+Mono&display=swap';
+  document.head.appendChild(fontLink);
 
-      <div class="col-md-3 col-sm-6 team-member mb-5">
-        <div class="team-member-image" onclick="openOverlay('jeff-bio')">
-          <div class="team-member-bg" style="background-image: url('img/forwardsfund-jeff.jpg');"></div>
-        </div>
-        <h2 class="member-name">Jeff</h2>
-        <small>Head of Investments</small>
-      </div>
+  const NAVBAR_HEIGHT = 120;
 
-      <div class="col-md-3 col-sm-6 team-member mb-5">
-        <div class="team-member-image" onclick="openOverlay('sylvan-bio')">
-          <div class="team-member-bg" style="background-image: url('img/forwardsfund-sylvan.jpg');"></div>
-        </div>
-        <h2 class="member-name">Sylvan</h2>
-        <small>Head of Public Relations</small>
-      </div>
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color('#000000');
 
-      <div class="col-md-3 col-sm-6 team-member mb-5">
-        <div class="team-member-image" onclick="openOverlay('perry-bio')">
-          <div class="team-member-bg" style="background-image: url('img/forwardsfund-perry.jpg');"></div>
-        </div>
-        <h2 class="member-name">Perry</h2>
-        <small>Head of Content & Marketing</small>
-      </div>
-    </div>
-  </div>
+  const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
+  const d = 3;
+  const camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 1, 100);
+  camera.position.set(3, 3, 5);
+  camera.lookAt(0, 0, 0);
+  scene.add(camera);
 
-  <div class="member-overlay" id="nicolas-bio">
-    <div class="overlay-content-team">
-      <i class="bi bi-x close-btn-team" onclick="closeOverlay('nicolas-bio')"></i>
-      <h2 class="overlay-title-team">Nicolas</h2>
-      <p>Psych/CS Major, Introspective, Loves to Write</p>
-    </div>
-  </div>
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight - NAVBAR_HEIGHT);
+  renderer.shadowMap.enabled = true;
+  renderer.domElement.style.marginTop = NAVBAR_HEIGHT + 'px'; // push canvas below navbar
+  document.body.appendChild(renderer.domElement);
 
-  <div class="member-overlay" id="jeff-bio">
-    <div class="overlay-content-team">
-      <i class="bi bi-x close-btn-team" onclick="closeOverlay('jeff-bio')"></i>
-      <h2 class="overlay-title-team">Jeff</h2>
-      <p>Engineer, Visionary Technologist, Future Elon Musk</p>
-    </div>
-  </div>
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); 
+  scene.add(ambientLight);
 
-  <div class="member-overlay" id="sylvan-bio">
-    <div class="overlay-content-team">
-      <i class="bi bi-x close-btn-team" onclick="closeOverlay('sylvan-bio')"></i>
-      <h2 class="overlay-title-team">Sylvan</h2>
-      <p>YouTube Influencer, Social Media Celebrity, Philosopher</p>
-    </div>
-  </div>
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(0, 0, 5); 
+  directionalLight.castShadow = true;
+  directionalLight.shadow.mapSize.width = 1024;
+  directionalLight.shadow.mapSize.height = 1024;
+  scene.add(directionalLight);
 
-  <div class="member-overlay" id="perry-bio">
-    <div class="overlay-content-team">
-      <i class="bi bi-x close-btn-team" onclick="closeOverlay('perry-bio')"></i>
-      <h2 class="overlay-title-team">Perry</h2>
-      <p>Viral Content Creator, Marketing Enthusiast, Troll</p>
-    </div>
-  </div>
-</section>
+  const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
+  const cubeMaterial = new THREE.MeshStandardMaterial({ 
+    color: 0xd5d5d5,
+    transparent: true, 
+    opacity: 0.4,
+  }); 
+  const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  cube.position.set(-2, 0, 0);
+  cube.receiveShadow = true;
+  scene.add(cube);
 
-<section id="resources">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 section-intro">
-                <h1>Resources</h1>
-                <p>Explore more to find out how you can join <em><strong>Forwards Fund</strong></em> and build your idea into the business of your dreams.</p>
-            </div>
-            <div class="col-md-4">
-                <div class="resource-box text-center">
-                    <a href="files/Forwards Fund Manifesto.pdf" class="resource-link" target="_blank">Forwards Fund Manifesto</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="resource-box text-center">
-                    <a href="files/Forwards Fund Application.pdf" class="resource-link" target="_blank">Forwards Fund Application</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="resource-box text-center">
-                    <a href="files/Forwards Fund Sample Pitch Deck.pdf" class="resource-link" target="_blank">Forwards Fund Pitch Deck</a>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <img src="img/forwardsfund-flowchart.png" alt="Flowchart" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+  const menuItems = [
+    { title: "Defense", description: "Protecting the ideals of democracy, freedom, capitalism, and the West." },
+    { title: "Logistics", description: "Securing global supply chains to bolster free trade and economic growth." },
+    { title: "Manufacturing", description: "Advancing breakthroughs in processing and manufacturing across industries." },
+    { title: "Agriculture", description: "Fostering innovation in the agricultural sector to feed society's future." },
+    { title: "Mining", description: "Supporting the responsible extraction of critical minerals and resources." },
+    { title: "Energy", description: "Powering the energy transition to achieve a world of sustainable abundance." },
+  ];
 
-<section id="contact" class="py-5">
-    <div class="container py-4">
-        <div class="row justify-content-center align-items-center d-flex">
-            <div class="col-md-6 d-flex align-items-center">
-                <div class="translucent-box">
-                    <h3 class="text-white m-0">Let's build together. Let's move <em>forwards.</em></h3>
-                </div>
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    Contact Us
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
+  const prismWidth = 1.8, prismLength = 1.8, prismHeight = 0.2;
+  const prismGeometry = new THREE.BoxGeometry(prismWidth, prismHeight, prismLength);
+  const prisms = [];
+
+  const totalPrismHeight = menuItems.length * prismHeight;
+  const gapSpaceAvailable = 2 - totalPrismHeight;
+  const gapBetweenPrisms = gapSpaceAvailable / (menuItems.length + 1);
+
+  let currentY = -0.85 + gapBetweenPrisms / 2;
+
+  menuItems.forEach((item, index) => {
+    const prismMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0x888888,
+        roughness: 0.3,
+        metalness: 0.0,
+    });
+    const prism = new THREE.Mesh(prismGeometry, prismMaterial);
+    prism.castShadow = true;
+    prism.receiveShadow = true;
+
+    prism.position.set(-2, currentY + index * (prismHeight + gapBetweenPrisms), 0);
+    prism.userData = {
+        title: item.title,
+        description: item.description,
+        initialPosition: prism.position.clone(),
+        targetPosition: new THREE.Vector3(0, prism.position.y, 0),
+        defaultColor: 0x888888,
+        activeColor: 0xffffff
+    };
+    scene.add(prism);
+    prisms.push(prism);
+  });
+
+  let activePrism = null;
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    prisms.forEach(prism => {
+      if (prism === activePrism) {
+        prism.position.lerp(prism.userData.targetPosition, 0.05);
+        prism.material.color.setHex(prism.userData.activeColor);
+      } else {
+        prism.position.lerp(prism.userData.initialPosition, 0.05);
+        prism.material.color.setHex(prism.userData.defaultColor);
+      }
+    });
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  const hoverLabel = document.getElementById('hoverLabel');
+  window.addEventListener('mousemove', (event) => {
+    const mouse = new THREE.Vector2();
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -((event.clientY - NAVBAR_HEIGHT) / (window.innerHeight - NAVBAR_HEIGHT)) * 2 + 1;
+
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(prisms);
+
+    if (intersects.length > 0) {
+      const hoveredPrism = intersects[0].object;
+      hoverLabel.style.display = 'block';
+      hoverLabel.style.left = event.clientX + 10 + 'px';
+      hoverLabel.style.top = event.clientY + 10 + 'px';
+      hoverLabel.textContent = hoveredPrism.userData.title;
+    } else {
+      hoverLabel.style.display = 'none';
+    }
+  });
+
+  window.addEventListener('click', (event) => {
+    const mouse = new THREE.Vector2();
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -((event.clientY - NAVBAR_HEIGHT) / (window.innerHeight - NAVBAR_HEIGHT)) * 2 + 1;
+
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(prisms);
+
+    if (intersects.length > 0) {
+      const clickedPrism = intersects[0].object;
+      activePrism = (activePrism === clickedPrism) ? null : clickedPrism;
+
+      const titleDiv = document.getElementById('title');
+      const descriptionDiv = document.getElementById('description');
+      if (activePrism) {
+        titleDiv.textContent = clickedPrism.userData.title;
+        descriptionDiv.textContent = clickedPrism.userData.description;
+      } else {
+        titleDiv.textContent = "";
+        descriptionDiv.textContent = "";
+      }
+    } else {
+      activePrism = null;
+      document.getElementById('title').textContent = "";
+      document.getElementById('description').textContent = "";
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
+    camera.left = -d * aspect;
+    camera.right = d * aspect;
+    camera.top = d;
+    camera.bottom = -d;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight - NAVBAR_HEIGHT);
+  });
+</script>
 
 <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -345,28 +349,107 @@
 </div>
 
 <footer>
-    <div class="footer-top">
-    <div class="container">
-        <div class="row">
-        <div class="col-md-4">
-            <img src="img/forwardsfund-logo.png" alt="Forwards Fund">
-            <h3>Making Startup and VC Culture Great Again</h3>
-            <div class="social-media-icons">
-            <a href="https://www.linkedin.com/company/forwardsfund"><i class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-            <a href="https://x.com/forwardsfund"><i class="bi bi-twitter-x" style="font-size: 2rem;"></i></a>
-            <a href="https://www.youtube.com/@forwardsfund"><i class="bi bi-youtube" style="font-size: 2rem;"></i></a>
-            <a href="https://vimeo.com/forwardsfund"><i class="bi bi-vimeo" style="font-size: 2rem;"></i></a>
-            <a href="https://www.reddit.com/user/forwardsfund"><i class="bi bi-reddit" style="font-size: 2rem;"></i></a>
-            <a href="https://github.com/forwardsfund"><i class="bi bi-github" style="font-size: 2rem;"></i></a>
-            </div>
-            <p class="mb-0">© 2025 Forwards Fund. All Rights Reserved.</p>
-        </div>
-    </div>
-    </div>
+  <div class="social-media-icons">
+    <a href="https://www.linkedin.com/company/forwardsfund"><i class="bi bi-linkedin"></i></a>
+    <a href="https://x.com/forwardsfund"><i class="bi bi-twitter-x"></i></a>
+    <a href="https://github.com/forwardsfund"><i class="bi bi-github"></i></a>
+    <a href="https://www.youtube.com/@forwardsfund"><i class="bi bi-youtube"></i></a>
+  </div>
+  <p class="footer-copy">Copyright 2025 Forwards Fund. All Rights Reserved.</p>
 </footer>
 
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
+<style>
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none; /* ensures footer doesn't block canvas clicks */
+}
 
-  </body>
+.social-media-icons {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.social-media-icons a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media-icons a:hover {
+  color: #ffffff60;
+}
+
+.footer-copy {
+  position: fixed;
+  bottom: 8px;
+  right: 20px;
+  color: #ffffff;
+  font-family: 'Space Mono', sans-serif;
+  font-size: 14px;
+  pointer-events: auto;
+}
+</style>
+<style>
+.modal-content {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Space Mono', sans-serif;
+  border-radius: 8px;
+  border: 1px solid #444444;
+}
+.modal-header {
+  border-bottom: 1px solid #444444;
+}
+.modal-title {
+  color: #ffffff;
+  font-weight: bold;
+}
+.btn-close {
+  filter: invert(1);
+}
+.btn-close:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.modal-body label {
+  color: #ffffff;
+}
+.modal-body .form-control {
+  background-color: #111111;
+  color: #ffffff;
+  border: 1px solid #555555;
+}
+.modal-body .form-control:focus {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #888888;
+  box-shadow: none;
+}
+.btn-brand {
+  padding: 10px 18px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Space Mono', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn-brand:hover {
+  background-color: #ffffff60;
+  color: #000000;
+}
+</style>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
