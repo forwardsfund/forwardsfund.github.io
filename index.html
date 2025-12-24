@@ -180,7 +180,7 @@
       }
       #infoPanel {
         top: auto;
-        bottom: 110px;
+        bottom: 60px;
         left: 50%;
         right: auto;
         transform: translateX(-50%) translateY(20px);
@@ -236,7 +236,7 @@
         font-size: 11px;
       }
       #infoPanel {
-        bottom: 100px;
+        bottom: 50px;
         padding: 12px;
         width: 88%;
         max-width: calc(100% - 24px);
@@ -322,7 +322,8 @@
   scene.background = new THREE.Color('#000000');
 
   const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
-  const d = 3;
+  // Increase camera frustum on mobile for better visibility
+  const d = window.innerWidth <= 768 ? 4.5 : 3;
   const camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 1, 100);
   camera.position.set(3, 3, 5);
   camera.lookAt(0, 0, 0);
@@ -345,11 +346,11 @@
   scene.add(directionalLight);
 
   const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
-  const cubeMaterial = new THREE.MeshStandardMaterial({ 
+  const cubeMaterial = new THREE.MeshStandardMaterial({
     color: 0xd5d5d5,
-    transparent: true, 
-    opacity: 0.4,
-  }); 
+    transparent: true,
+    opacity: window.innerWidth <= 768 ? 0.15 : 0.4,
+  });
   const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
   cube.position.set(-2, 0, 0);
   cube.receiveShadow = true;
@@ -479,18 +480,25 @@
   window.addEventListener('touchend', (event) => {
     if (event.changedTouches.length > 0) {
       const touch = event.changedTouches[0];
-      handleInteraction(touch.clientX, touch.clientY);
+      // Check if touch is in the 3D canvas area (not navbar or other UI)
+      if (touch.clientY > NAVBAR_HEIGHT) {
+        handleInteraction(touch.clientX, touch.clientY);
+      }
     }
   });
 
   window.addEventListener('resize', () => {
     NAVBAR_HEIGHT = getNavbarHeight();
     const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
-    camera.left = -d * aspect;
-    camera.right = d * aspect;
-    camera.top = d;
-    camera.bottom = -d;
+    const newD = window.innerWidth <= 768 ? 4.5 : 3;
+    camera.left = -newD * aspect;
+    camera.right = newD * aspect;
+    camera.top = newD;
+    camera.bottom = -newD;
     camera.updateProjectionMatrix();
+
+    // Adjust cube opacity based on screen size
+    cube.material.opacity = window.innerWidth <= 768 ? 0.15 : 0.4;
 
     renderer.setSize(window.innerWidth, window.innerHeight - NAVBAR_HEIGHT);
     renderer.domElement.style.marginTop = NAVBAR_HEIGHT + 'px';
