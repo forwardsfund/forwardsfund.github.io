@@ -816,7 +816,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="https://www.youtube.com/@forwardsfund"><i class="bi bi-youtube"></i></a>
     <a href="mailto:info@forwardsfund.com"><i class="bi bi-envelope"></i></a>
   </div>
-  <p class="footer-copy">Copyright 2025 Forwards Fund. All Rights Reserved.</p>
+  <p class="footer-locations">New York City, NY | Los Angeles, CA | Huntsville, AL</p>
+  <p class="footer-copy">© 2026 Forwards Fund. All Rights Reserved.</p>
 </footer>
 
 <style>
@@ -828,6 +829,7 @@ footer {
   pointer-events: none;
 }
 
+/* Left Icons */
 .social-media-icons {
   position: fixed;
   bottom: 15px;
@@ -852,6 +854,21 @@ footer {
   text-shadow: 0 4px 12px rgba(255,255,255,0.3);
 }
 
+/* Center Locations */
+.footer-locations {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  pointer-events: auto;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+/* Right Copyright */
 .footer-copy {
   position: fixed;
   bottom: 10px;
@@ -864,35 +881,51 @@ footer {
   z-index: 100;
 }
 
+/* Tablet */
 @media (max-width: 768px) {
   .social-media-icons {
     bottom: 18px;
     left: 12px;
     gap: 12px;
   }
+
   .social-media-icons a {
     font-size: 1.2rem;
   }
+
+  /* Hide locations on tablet & smaller */
+  .footer-locations {
+    display: none;
+  }
+
   .footer-copy {
-    bottom: 14px;
+    bottom: 6px;
     right: 12px;
     font-size: 10px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .social-media-icons {
-    bottom: 12px;
+    bottom: 14px;
     left: 8px;
     gap: 10px;
   }
+
   .social-media-icons a {
     font-size: 1.1rem;
   }
+
+  /* Still hidden on mobile */
+  .footer-locations {
+    display: none;
+  }
+
   .footer-copy {
-    font-size: 8px;
-    bottom: 10px;
+    bottom: 4px;
     right: 8px;
+    font-size: 8px;
   }
 }
 
