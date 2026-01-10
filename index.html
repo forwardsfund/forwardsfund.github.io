@@ -378,11 +378,9 @@
       <li><a class="nav-link" href="#portfolio" id="portfolio-link">Portfolio</a></li>
       <li><a class="nav-link" href="#initiatives" id="initiatives-link">Initiatives</a></li>
       <li><a class="nav-link" href="#team" id="team-link">Team</a></li>
+      <li><a class="nav-link" href="#investors" id="investors-link">Investors</a></li>
     </ul>
   </nav>
-  <button id="contact-button" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#contactModal">
-    Contact Us
-  </button>
 </div>
 
 <div class="modal fade" id="manifestoModal" tabindex="-1" aria-labelledby="manifestoModalLabel" aria-hidden="true">
@@ -481,6 +479,7 @@
     var portfolioLink = document.getElementById('portfolio-link');
     var initiativesLink = document.getElementById('initiatives-link');
     var teamLink = document.getElementById('team-link');
+    var investorsLink = document.getElementById('investors-link');
     var hamburger = document.getElementById('navbar-hamburger');
     var navUl = document.querySelector('#main-nav ul');
 
@@ -539,6 +538,13 @@
         e.preventDefault();
         var teamModal = new bootstrap.Modal(document.getElementById('teamModal'));
         teamModal.show();
+      });
+    }
+    if (investorsLink) {
+      investorsLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        var investorsModal = new bootstrap.Modal(document.getElementById('investorsModal'));
+        investorsModal.show();
       });
     }
   });
@@ -776,14 +782,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 </script>
 
-<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+<div class="modal fade" id="investorsModal" tabindex="-1" aria-labelledby="investorsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="background:#000000;">
             <div class="modal-header">
-                <h3 class="modal-title" id="contactModalLabel">Contact Us</h3>
+                <h3 class="modal-title" id="investorsModalLabel">Join the Forwards Fund Angel Investor Network</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              <p>Are you an SEC-accredited investor who would like access to our private database of revolutionary deep tech startups and founders? Forwards Fund is actively partnering with angel investors and VC firms to raise a war chest of private capital to deploy to the founders, startups, and missions we believe in. Reach out to us with this form or email <strong>investors@forwardsfund.com</strong></p>
                 <form action="https://formspree.io/f/xgvkdron" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label" style="font-size: 1.5rem;">Name:</label>
