@@ -17,6 +17,65 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
+      .portfolio-hover-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+      .portfolio-hover-link {
+        display: inline-block;
+        text-decoration: none;
+      }
+      .portfolio-image-wrapper {
+        position: relative;
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .portfolio-image {
+        display: block;
+        width: 320px;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .portfolio-hover-cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+      }
+      .portfolio-hover-text {
+        color: #fff;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 24px 18px;
+        font-family: 'Space Mono', monospace;
+      }
+      .portfolio-image-wrapper:hover,
+      .portfolio-image-wrapper:focus {
+        transform: scale(1.07);
+        z-index: 2;
+      }
+      .portfolio-image-wrapper:hover .portfolio-hover-cover,
+      .portfolio-image-wrapper:focus .portfolio-hover-cover {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .portfolio-image-wrapper:hover .portfolio-image,
+      .portfolio-image-wrapper:focus .portfolio-image {
+        box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      }
           @media (max-width: 800px) {
             #main-nav ul {
               display: none;
@@ -95,22 +154,20 @@
         font-weight: 600;
         letter-spacing: 0.5px;
         padding: 6px 18px;
-        border-radius: 6px;
+        border-radius: 0;
         text-decoration: none;
-        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        transition: color 0.2s, text-decoration 0.2s;
         box-shadow: none;
         opacity: 0.92;
       }
-      #main-nav .nav-link:hover, #main-nav .nav-link:focus {
-        background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
-        color: #000000;
-        box-shadow: 0 2px 12px rgba(255,255,255,0.12);
-        opacity: 1;
-        text-decoration: none;
-      }
+      #main-nav .nav-link:hover,
+      #main-nav .nav-link:focus,
       #main-nav .nav-link:active {
-        background: #e0e0e0;
-        color: #000000;
+        color: #ffffff;
+        text-decoration: underline;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
         opacity: 1;
       }
     body {
@@ -427,10 +484,20 @@
       </div>
 
       <div class="modal-body" style="text-align:center;">
-        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:18px;"><strong>BidStream (FF 2025)</strong> is an early-stage software startup building the unbiased bidding & procurement engine for construction.</div>
-        <a href="https://bidstream.co" target="_blank">
-          <img src="./img/bidstream.png" alt="BidStream" class="portfolio-image">
-        </a>
+        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:18px;">Our Companies:</div>
+        <div class="portfolio-hover-container">
+          <a href="https://bidstream.co" target="_blank" class="portfolio-hover-link">
+            <div class="portfolio-image-wrapper">
+              <img src="./img/bidstream.png" alt="BidStream" class="portfolio-image">
+              <div class="portfolio-hover-cover">
+                <div class="portfolio-hover-text">
+                  <strong>BidStream (FF 2025)</strong><br>
+                  Early-stage software startup building the unbiased bidding & procurement engine for construction.
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
 
     </div>
