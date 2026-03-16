@@ -36,7 +36,6 @@
         display: block;
         width: 320px;
         max-width: 100%;
-        border-radius: 12px;
         box-shadow: 0 4px 24px rgba(0,0,0,0.4);
         transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
@@ -51,7 +50,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 12px;
         transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none;
       }
@@ -484,15 +482,29 @@
       </div>
 
       <div class="modal-body" style="text-align:center;">
-        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:18px;">Our Companies:</div>
+        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:30px;">Companies we back:</div>
         <div class="portfolio-hover-container">
           <a href="https://bidstream.co" target="_blank" class="portfolio-hover-link">
             <div class="portfolio-image-wrapper">
-              <img src="./img/bidstream.png" alt="BidStream" class="portfolio-image">
+              <img src="./img/portfolio-bidstream.png" alt="BidStream" class="portfolio-image">
               <div class="portfolio-hover-cover">
                 <div class="portfolio-hover-text">
-                  <strong>BidStream (FF 2025)</strong><br>
-                  Early-stage software startup building the unbiased bidding & procurement engine for construction.
+                  <strong>BidStream</strong><br>
+                  Building the unbiased bidding & procurement engine for construction.
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="portfolio-hover-container">
+          <a href="https://www.mobyrobotics.com/" target="_blank" class="portfolio-hover-link">
+            <div class="portfolio-image-wrapper">
+              <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics" class="portfolio-image">
+              <div class="portfolio-hover-cover">
+                <div class="portfolio-hover-text">
+                  <strong>MOBY Robotics</strong><br>
+                  AI-powered ocean technology for sustainable and scalable critical mineral collection.
                 </div>
               </div>
             </div>
@@ -534,7 +546,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" style="text-align:center;">
-        <h2>Coming Soon...</h2>
+        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:30px;">Meet our team:</div>
+        <div class="portfolio-hover-container" style="justify-content:center; gap:40px;">
+          <a href="https://www.linkedin.com/in/jeffrey-laederach/" target="_blank" class="portfolio-hover-link">
+            <div class="portfolio-image-wrapper" style="width:220px;">
+              <img src="./img/jeffrey.png" alt="Jeffrey Laederach" class="portfolio-image" style="width:220px;">
+              <div class="portfolio-hover-cover">
+                <div class="portfolio-hover-text">
+                  <strong>Jeffrey Laederach</strong><br>
+                  Founder & Director of Operations
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/juliayhchu/" target="_blank" class="portfolio-hover-link">
+            <div class="portfolio-image-wrapper" style="width:220px;">
+              <img src="./img/julia.png" alt="Julia Chu" class="portfolio-image" style="width:220px;">
+              <div class="portfolio-hover-cover">
+                <div class="portfolio-hover-text">
+                  <strong>Julia Chu</strong><br>
+                  Director of Marketing
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
