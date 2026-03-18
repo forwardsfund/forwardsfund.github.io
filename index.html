@@ -431,8 +431,8 @@
     <ul>
       <li><a class="nav-link" href="#manifesto" id="manifesto-link">Manifesto</a></li>
       <li><a class="nav-link" href="#portfolio" id="portfolio-link">Portfolio</a></li>
-      <li><a class="nav-link" href="#initiatives" id="initiatives-link">Initiatives</a></li>
       <li><a class="nav-link" href="#team" id="team-link">Team</a></li>
+      <li><a class="nav-link" href="#partners" id="partners-link">Partners</a></li>
       <li><a class="nav-link" href="#investors" id="investors-link">Investors</a></li>
     </ul>
   </nav>
@@ -516,28 +516,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="initiativesModal" tabindex="-1" aria-labelledby="initiativesModalLabel" aria-hidden="true">
-  <div class="modal-dialog manifesto-modal-wide">
-    <div class="modal-content" style="background:#000000;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="initiativesModalLabel">Initiatives</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:18px;">We sponsor technology research groups known as <strong>Forwards Fund Special Projects</strong>:</div>
-        <div class="initiatives-logos-container">
-          <a href="https://vexergy.com" target="_blank" class="initiative-logo-link">
-            <img src="./img/vexergy.png" alt="Vexergy" class="initiative-logo-img" />
-          </a>
-          <a href="https://meplir.com" target="_blank" class="initiative-logo-link">
-            <img src="./img/meplir.png" alt="Meplir" class="initiative-logo-img" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
   <div class="modal-dialog team-modal-wide">
     <div class="modal-content" style="background:#000000;">
@@ -547,34 +525,62 @@
       </div>
       <div class="modal-body" style="text-align:center;">
         <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:30px;">Meet our team:</div>
-        <div class="portfolio-hover-container" style="justify-content:center; gap:40px;">
-          <a href="https://www.linkedin.com/in/jeffrey-laederach/" target="_blank" class="portfolio-hover-link">
-            <div class="portfolio-image-wrapper" style="width:220px;">
-              <img src="./img/jeffrey.png" alt="Jeffrey Laederach" class="portfolio-image" style="width:220px;">
-              <div class="portfolio-hover-cover">
-                <div class="portfolio-hover-text">
-                  <strong>Jeffrey Laederach</strong><br>
-                  Founder & Director of Operations
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+              <a href="https://www.linkedin.com/in/jeffrey-laederach/" target="_blank" class="portfolio-hover-link">
+                <div class="portfolio-image-wrapper" style="width:220px;">
+                  <img src="./img/jeffrey.png" alt="Jeffrey Laederach" class="portfolio-image" style="width:220px;">
+                  <div class="portfolio-hover-cover">
+                    <div class="portfolio-hover-text">
+                      <strong>Jeffrey Laederach</strong><br>
+                      Founder & Director of Operations
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
-          <a href="https://www.linkedin.com/in/juliayhchu/" target="_blank" class="portfolio-hover-link">
-            <div class="portfolio-image-wrapper" style="width:220px;">
-              <img src="./img/julia.png" alt="Julia Chu" class="portfolio-image" style="width:220px;">
-              <div class="portfolio-hover-cover">
-                <div class="portfolio-hover-text">
-                  <strong>Julia Chu</strong><br>
-                  Director of Marketing
+            <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+              <a href="https://www.linkedin.com/in/juliayhchu/" target="_blank" class="portfolio-hover-link">
+                <div class="portfolio-image-wrapper" style="width:220px;">
+                  <img src="./img/julia.png" alt="Julia Chu" class="portfolio-image" style="width:220px;">
+                  <div class="portfolio-hover-cover">
+                    <div class="portfolio-hover-text">
+                      <strong>Julia Chu</strong><br>
+                      Director of Marketing
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+
+<div class="modal fade" id="partnersModal" tabindex="-1" aria-labelledby="partnersModalLabel" aria-hidden="true">
+  <div class="modal-dialog manifesto-modal-wide">
+    <div class="modal-content" style="background:#000000;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="partnersModalLabel">Partners</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:18px;">We founded and partnered with innovative organizations including:</div>
+        <div class="partners-logos-container">
+          <a href="https://vexergy.com" target="_blank" class="partners-logo-link">
+            <img src="./img/initiative-vexergy.png" alt="Vexergy" class="partners-logo-img" />
+          </a>
+          <a href="https://meplir.com" target="_blank" class="partners-logo-link">
+            <img src="./img/initiative-meplir.png" alt="Meplir" class="partners-logo-img" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -585,8 +591,8 @@
   document.addEventListener('DOMContentLoaded', function() {
     var manifestoLink = document.getElementById('manifesto-link');
     var portfolioLink = document.getElementById('portfolio-link');
-    var initiativesLink = document.getElementById('initiatives-link');
     var teamLink = document.getElementById('team-link');
+    var partnersLink = document.getElementById('partners-link');
     var investorsLink = document.getElementById('investors-link');
     var hamburger = document.getElementById('navbar-hamburger');
     var navUl = document.querySelector('#main-nav ul');
@@ -634,18 +640,18 @@
         portfolioModal.show();
       });
     }
-    if (initiativesLink) {
-      initiativesLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        var initiativesModal = new bootstrap.Modal(document.getElementById('initiativesModal'));
-        initiativesModal.show();
-      });
-    }
     if (teamLink) {
       teamLink.addEventListener('click', function(e) {
         e.preventDefault();
         var teamModal = new bootstrap.Modal(document.getElementById('teamModal'));
         teamModal.show();
+      });
+    }
+    if (partnersLink) {
+      partnersLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        var partnersModal = new bootstrap.Modal(document.getElementById('partnersModal'));
+        partnersModal.show();
       });
     }
     if (investorsLink) {
@@ -668,15 +674,15 @@
       popup.style.display = 'none';
     }
   });
-// Logo hover animation for initiatives modal
+// Logo hover animation for partners modal
 document.addEventListener('DOMContentLoaded', function() {
-  var logoImgs = document.querySelectorAll('.initiative-logo-img');
+  var logoImgs = document.querySelectorAll('.partners-logo-img');
   logoImgs.forEach(function(img) {
     img.addEventListener('mouseenter', function() {
-      img.classList.add('initiative-logo-hover');
+      img.classList.add('partners-logo-hover');
     });
     img.addEventListener('mouseleave', function() {
-      img.classList.remove('initiative-logo-hover');
+      img.classList.remove('partners-logo-hover');
     });
   });
 });
@@ -929,7 +935,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="https://x.com/forwardsfund"><i class="bi bi-twitter-x"></i></a>
     <a href="https://github.com/forwardsfund"><i class="bi bi-github"></i></a>
     <a href="https://www.youtube.com/@forwardsfund"><i class="bi bi-youtube"></i></a>
-    <a href="mailto:info@forwardsfund.com"><i class="bi bi-envelope"></i></a>
+    <a href="https://substack.com/@forwardsfund"><i class="bi bi-substack"></i></a>
   </div>
   <p class="footer-locations">New York City, NY | Los Angeles, CA | Huntsville, AL</p>
   <p class="footer-copy">© 2026 Forwards Fund. All Rights Reserved.</p>
@@ -1044,14 +1050,14 @@ footer {
   }
 }
 
-    .initiatives-logos-container {
+    .partners-logos-container {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 32px;
       flex-wrap: wrap;
     }
-    .initiative-logo-link {
+    .partners-logo-link {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1059,7 +1065,7 @@ footer {
       border-radius: 12px;
       padding: 8px;
     }
-    .initiative-logo-img {
+    .partners-logo-img {
       max-width: 160px;
       width: 100%;
       height: auto;
@@ -1067,16 +1073,16 @@ footer {
       border-radius: 10px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.12);
     }
-    .initiative-logo-hover {
+    .partners-logo-hover {
       transform: scale(1.08);
       box-shadow: 0 6px 24px rgba(0,0,0,0.18);
     }
     @media (max-width: 800px) {
-      .initiatives-logos-container {
+      .partners-logos-container {
         flex-direction: column;
         gap: 18px;
       }
-      .initiative-logo-img {
+      .partners-logo-img {
         max-width: 80vw;
       }
     }
