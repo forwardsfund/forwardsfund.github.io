@@ -1,971 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Forwards Fund</title>
+
     <script type="application/ld+json">
-      {
+    {
         "@context" : "https://schema.org",
         "@type" : "WebSite",
         "name" : "Forwards Fund",
         "url" : "https://forwardsfund.com/"
-      }
+    }
     </script>
+
     <meta name="google-site-verification" content="csNoXvHKYi9vydth8mjSBx8yq4PhMvScKV_jiWPXJIs" />
+
     <link rel="icon" type="image/png" href="./img/forwardsfund.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-      .portfolio-hover-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 18px;
-      }
-      .portfolio-hover-link {
-        display: inline-block;
-        text-decoration: none;
-      }
-      .portfolio-image-wrapper {
-        position: relative;
-        display: inline-block;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .portfolio-image {
-        display: block;
-        width: 320px;
-        max-width: 100%;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .portfolio-hover-cover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.85);
-        opacity: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-      }
-      .portfolio-hover-text {
-        color: #fff;
-        text-align: center;
-        font-size: 1.1rem;
-        padding: 24px 18px;
-        font-family: 'Space Mono', monospace;
-      }
-      .portfolio-image-wrapper:hover,
-      .portfolio-image-wrapper:focus {
-        transform: scale(1.07);
-        z-index: 2;
-      }
-      .portfolio-image-wrapper:hover .portfolio-hover-cover,
-      .portfolio-image-wrapper:focus .portfolio-hover-cover {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .portfolio-image-wrapper:hover .portfolio-image,
-      .portfolio-image-wrapper:focus .portfolio-image {
-        box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-      }
-          @media (max-width: 800px) {
-            #main-nav ul {
-              display: none;
-              flex-direction: column;
-              position: absolute;
-              top: 100%;
-              left: 0;
-              width: 100vw;
-              z-index: 2000;
-              margin: 0;
-              padding: 16px 0 8px 0;
-              box-shadow: none;
-              border-bottom-left-radius: 0;
-              border-bottom-right-radius: 0;
-              max-height: 0;
-              overflow: hidden;
-              opacity: 0;
-            }
-            #main-nav ul.show {
-              display: flex;
-              max-height: 400px;
-              opacity: 1;
-            }
-            #main-nav ul.show {
-              display: flex;
-            }
-            #main-nav .nav-link {
-              font-size: 20px;
-              padding: 12px 24px;
-              border-radius: 0;
-              text-align: left;
-            }
-            #navbar {
-              height: 60px;
-              padding: 0 8px;
-            }
-            #navbar img {
-              height: 36px;
-            }
-            #navbar-text {
-              font-size: 14px;
-              display: none;
-            }
-            #contact-button {
-              padding: 7px 12px;
-              font-size: 11px;
-            }
-          }
-          #navbar-hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 2.2rem;
-            margin-left: 18px;
-            cursor: pointer;
-            z-index: 2100;
-          }
-          @media (max-width: 800px) {
-            #navbar-hamburger {
-              display: block;
-            }
-          }
-      #main-nav ul {
-        list-style: none;
-        display: flex;
-        gap: 18px;
-        margin: 0 24px 0 32px;
-        padding: 0;
-        align-items: center;
-      }
-      #main-nav .nav-link {
-        color: #ffffff;
-        font-family: 'Space Mono', monospace;
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        padding: 6px 18px;
-        border-radius: 0;
-        text-decoration: none;
-        transition: color 0.2s, text-decoration 0.2s;
-        box-shadow: none;
-        opacity: 0.92;
-      }
-      #main-nav .nav-link:hover,
-      #main-nav .nav-link:focus,
-      #main-nav .nav-link:active {
-        color: #ffffff;
-        text-decoration: underline;
-        background: none;
-        box-shadow: none;
-        border-radius: 0;
-        opacity: 1;
-      }
-    body {
-        margin: 0;
-        overflow: hidden;
-        font-family: 'Space Mono', monospace;
-        background: #000000;
-    }
-    canvas {
-        display: block;
-    }
-    #navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(180deg, #000000 0%, #000000dd 100%);
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        z-index: 1000;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    #navbar img {
-        height: 80px;
-        transition: transform 0.3s ease;
-    }
-    #navbar img:hover {
-        transform: scale(1.05);
-    }
-    #navbar-text {
-        color: #ffffff;
-        font-family: 'Space Mono', monospace;
-        font-size: 28px;
-        font-weight: bold;
-        margin-left: 8px;
-        letter-spacing: 0.5px;
-    }
-    #contact-button {
-      margin-left: auto;
-      padding: 12px 24px;
-      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-      color: #000000;
-      font-family: 'Space Mono', monospace;
-      font-size: 15px;
-      font-weight: bold;
-      border: 2px solid transparent;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
-    }
-    #contact-button:hover {
-      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,255,255,0.3);
-    }
-    #contact-button:active {
-      transform: translateY(0);
-    }
-    #infoPanel {
-        position: fixed;
-        top: 150px;
-        right: 40px;
-        color: #ffffff;
-        font-family: 'Space Mono', monospace;
-        max-width: 380px;
-        padding: 20px;
-        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
-        backdrop-filter: blur(15px);
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.1);
-        opacity: 0;
-        transform: translateX(20px);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-    #infoPanel.active {
-        opacity: 1;
-        transform: translateX(0);
-        pointer-events: auto;
-    }
-    #title {
-        font-size: 26px;
-        font-weight: bold;
-        font-family: 'Space Mono', monospace;
-        margin-bottom: 16px;
-        background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    #description {
-        font-size: 15px;
-        line-height: 1.6;
-        color: #e0e0e0;
-    }
-    #hoverLabel {
-        position: absolute;
-        padding: 8px 14px;
-        background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 100%);
-        color: #ffffff;
-        font-family: 'Space Mono', monospace;
-        font-size: 13px;
-        border-radius: 6px;
-        pointer-events: none;
-        display: none;
-        z-index: 2000;
-        border: 1px solid rgba(255,255,255,0.2);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    #logo-container {
-      position: relative;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-    #logo-popup {
-      position: absolute;
-      top: 110px;
-      left: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
-      backdrop-filter: blur(15px);
-      color: #ffffff;
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      line-height: 1.6;
-      padding: 16px 20px;
-      border-radius: 8px;
-      max-width: 380px;
-      display: none;
-      z-index: 2000;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-    }
-    /* Desktop only - hover to show popup */
-    @media (hover: hover) and (pointer: fine) {
-      #logo-container:hover #logo-popup {
-        display: block;
-      }
-    }
 
-    /* Mobile Responsive Styles */
-    @media (max-width: 768px) {
-      #navbar {
-        height: 60px;
-        padding: 0 10px;
-      }
-      #navbar img {
-        height: 45px;
-      }
-      #navbar-text {
-        font-size: 16px;
-        margin-left: 6px;
-      }
-      #contact-button {
-        padding: 8px 14px;
-        font-size: 12px;
-        margin-left: auto;
-      }
-      #infoPanel {
-        top: auto;
-        bottom: 60px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%) translateY(20px);
-        max-width: calc(100% - 32px);
-        width: 85%;
-        padding: 14px;
-      }
-      #infoPanel.active {
-        transform: translateX(-50%) translateY(0);
-      }
-      #title {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-      #description {
-        font-size: 12px;
-        line-height: 1.5;
-      }
-      #logo-popup {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        width: auto;
-        max-width: none;
-        box-sizing: border-box;
-        padding: 10px 14px;
-        font-size: 11px;
-        line-height: 1.5;
-        transform: none;
-        margin: 0 6px
-      }
-      #hoverLabel {
-        font-size: 11px;
-        padding: 5px 8px;
-      }
-    }
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-    @media (max-width: 480px) {
-      #navbar {
-        height: 55px;
-        padding: 0 8px;
-      }
-      #navbar img {
-        height: 40px;
-      }
-      #navbar-text {
-        font-size: 14px;
-        display: none;
-      }
-      #contact-button {
-        padding: 7px 12px;
-        font-size: 11px;
-      }
-      #infoPanel {
-        bottom: 50px;
-        padding: 12px;
-        width: 88%;
-        max-width: calc(100% - 24px);
-      }
-      #title {
-        font-size: 16px;
-        margin-bottom: 8px;
-      }
-      #description {
-        font-size: 11px;
-        line-height: 1.4;
-      }
-      #logo-popup {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        width: auto;
-        max-width: none;
-        box-sizing: border-box;
-        padding: 8px 12px;
-        font-size: 10px;
-        transform: none;
-        margin: 0 6px
-      }
-    }
-    </style>
-  </head>
 <body>
+<div id="home"></div>
 
 <div id="navbar">
-  <div id="logo-container">
-    <img src="./img/forwardsfund.png" alt="Forwards Fund" id="logo">
-    <span id="navbar-text">Forwards Fund</span>
-    <div id="logo-popup">
-      Forwards Fund is a private angel investor network that builds early-stage deep tech startups solving the greatest problems in critical infrastructure sectors. From energy, mining, and agriculture, to manufacturing, logistics, and defense, we focus on founders and ideas that have the potential to revolutionize the industries that keep humanity running. With a first principles approach and pioneering ambition, we help tomorrow's leaders in engineering and technology move the world <i>forwards</i>.
+    <div id="logo-container">
+        <a href="#home" class="logo-link">
+            <img src="./img/forwardsfundlogotransparent.png" alt="Forwards Fund" id="logo">
+        </a>
     </div>
-  </div>
-  <button id="navbar-hamburger" aria-label="Open navigation" tabindex="0"><span class="bi bi-list"></span></button>
-  <nav id="main-nav">
-    <ul>
-      <li><a class="nav-link" href="#manifesto" id="manifesto-link">Manifesto</a></li>
-      <li><a class="nav-link" href="#portfolio" id="portfolio-link">Portfolio</a></li>
-      <li><a class="nav-link" href="#team" id="team-link">Team</a></li>
-      <li><a class="nav-link" href="#partners" id="partners-link">Partners</a></li>
-      <li><a class="nav-link" href="#investors" id="investors-link">Investors</a></li>
-    </ul>
-  </nav>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link" href="#manifesto">Manifesto</a></li>
+            <li><a class="nav-link" href="#team">Team</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button id="navbar-hamburger" aria-label="Open navigation" tabindex="0">
+        <span class="bi bi-list"></span>
+    </button>
 </div>
 
-<div class="modal fade" id="manifestoModal" tabindex="-1" aria-labelledby="manifestoModalLabel" aria-hidden="true">
-  <div class="modal-dialog manifesto-modal-wide">
-    <div class="modal-content" style="background:#000000;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="manifestoModalLabel">Manifesto</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h2>Critical Infrastructure</h2>
-        <hr style="margin-top:0.2em;margin-bottom:1.2em;">
-        <p style="font-size:1.2rem;line-height:1.7;">
-          At Forwards Fund, we believe in the power of engineering and technology to solve humanity's greatest challenges. Our manifesto is a call to action for founders, builders, and visionaries who are unafraid to tackle the hardest problems in critical infrastructure. We champion first principles thinking, bold ambition, and a relentless drive to move the world forwards. Our mission is to empower pioneers who are building the foundations of tomorrow, today.
+<div class="main-image" id="hero-image">
+    <div class="main-page">
+        <h1>REBUILD.</h1>
+        <h1>REVIVE.</h1>
+        <h1>REINDUSTRIALIZE.</h1>
+    </div>
+</div>
+
+<section id="portfolio">
+
+    <div class="logo-slider">
+        <div class="logo-track">
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+
+            <a href="https://bidstream.co" target="_blank">
+                <img src="./img/portfolio-bidstream.png" alt="Bidstream">
+            </a>
+
+            <a href="https://mobyrobotics.com" target="_blank">
+                <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics">
+            </a>
+        </div>
+    </div>
+</section>
+
+    <div class="stats-section">
+        <div class="stats-card">
+            <div class="stats-card__accent"></div>
+            <h2 class="stats-card__number">$1M+</h2>
+            <p class="stats-card__text">Ready to deploy from our network</p>
+        </div>
+
+        <div class="stats-card">
+            <div class="stats-card__accent"></div>
+            <h2 class="stats-card__number">6</h2>
+            <p class="stats-card__text">Deep tech sectors we invest in</p>
+        </div>
+
+        <div class="stats-card">
+            <div class="stats-card__accent"></div>
+            <h2 class="stats-card__number">$10k</h2>
+            <p class="stats-card__text">Average check size in our portfolio</p>
+        </div>
+    </div>
+
+</section>
+
+<section id="sectors">
+    <div class="sectors-content">
+        <p class="sectors-description">
+          Forwards Fund is a private angel investor network that builds early-stage deep tech startups solving the greatest problems in critical infrastructure sectors. From energy, mining, and agriculture, to manufacturing, logistics, and defense, we focus on founders and ideas that have the potential to revolutionize the industries that keep humanity running. With a first principles approach and pioneering ambition, we help tomorrow's leaders in engineering and technology move the world <i>forwards</i>.
         </p>
 
-        <h2>Deep Tech Philosophy</h2>
-        <hr style="margin-top:0.2em;margin-bottom:1.2em;">
-        <p style="font-size:1.2rem;line-height:1.7;">
-          We invest in those who dare to reimagine the future of energy, mining, agriculture, manufacturing, logistics, and defense. We see a massive underrepresentation of deep tech startups in the American venture ecosystem, and we are committed to changing that. We seek to catalyze the next generation of transformative, meaningful, and high-impact companies that will define the 21st century.
+        <img src="./img/sectors.png" alt="Sectors" class="sectors-image">
+    </div>
+</section>
+
+<section id="manifesto">
+    <div class="manifesto-wrapper">
+        <h2 class="manifesto-title">Manifesto</h2>
+
+        <h3 class="manifesto-subtitle">Critical Infrastructure</h3>
+        <p class="manifesto-text">
+            At Forwards Fund, we believe in the power of engineering and technology to solve humanity's greatest challenges. Our manifesto is a call to action for founders, builders, and visionaries who are unafraid to tackle the hardest problems in critical infrastructure. We champion first principles thinking, bold ambition, and a relentless drive to move the world forwards. Our mission is to empower pioneers who are building the foundations of tomorrow, today.
         </p>
 
-        <h2>Cowboy Capitalism</h2>
-        <hr style="margin-top:0.2em;margin-bottom:1.2em;">
-        <p style="font-size:1.2rem;line-height:1.7;">
-          We embrace the vision of cowboy capitalism. A fearless, independent approach to innovation and entrepreneurship. We value grit, resilience, and the rugged individualism that once built the American West. Free-market thinking, frontier ambition, risk-tolerant mentality, and a pioneering spirit. 
+        <h3 class="manifesto-subtitle">Deep Tech Renaissance</h3>
+        <p class="manifesto-text">
+            We invest in those who dare to reimagine the future of energy, mining, agriculture, manufacturing, logistics, and defense. We see a massive underrepresentation of deep tech startups in the American venture ecosystem, and we are committed to changing that. We seek to catalyze the next generation of transformative, meaningful, and high-impact companies that will define the 21st century and beyond.
         </p>
 
-        <h2>American Reindustrialization</h2>
-        <hr style="margin-top:0.2em;margin-bottom:1.2em;">
-        <p style="font-size:1.2rem;line-height:1.7;">
-          We seek to bring back the golden age of American manufacturing: onshore, American-made, and cutting-edge. We believe that a strong industrial base is essential for national security, economic prosperity, and the well-being of future generations.
-      </div>
+        <h3 class="manifesto-subtitle">Cowboy Capitalism</h3>
+        <p class="manifesto-text">
+            We embrace the vision of cowboy capitalism. A fearless, independent approach to innovation and entrepreneurship. Founders with contrarian perspectives, a chip on their shoulder, and seasoned personal convictions. Builders who value grit, resilience, and the rugged individualism that once built the American West. Visionaries with free-market thinking, frontier curiosity, a risk-tolerant mentality, and a pioneering spirit.
+        </p>
+
+        <h3 class="manifesto-subtitle">American Reindustrialization</h3>
+        <p class="manifesto-text">
+            We seek to bring back the golden age of American manufacturing: onshore, American-made, and cutting-edge. We believe that a strong industrial base is essential for national security, economic prosperity, and the well-being of future generations.
+        </p>
     </div>
-  </div>
-</div>
+</section>
 
-<div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
-  <div class="modal-dialog manifesto-modal-wide">
-    <div class="modal-content" style="background:#000000;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="portfolioModalLabel">Portfolio</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+<section id="team">
+    <h2 class="team-title">Team</h2>
 
-      <div class="modal-body" style="text-align:center;">
-        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:30px;">Companies we back:</div>
-        <div class="portfolio-hover-container">
-          <a href="https://bidstream.co" target="_blank" class="portfolio-hover-link">
-            <div class="portfolio-image-wrapper">
-              <img src="./img/portfolio-bidstream.png" alt="BidStream" class="portfolio-image">
-              <div class="portfolio-hover-cover">
-                <div class="portfolio-hover-text">
-                  <strong>BidStream</strong><br>
-                  Building the unbiased bidding & procurement engine for construction.
-                </div>
-              </div>
-            </div>
-          </a>
+    <div class="team-list">
+
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/jeffrey-laederach/" target="_blank" class="team-name">
+                Jeffrey Laederach
+            </a>
+            <p class="team-role">Founder & Director of Operations</p>
+            <p class="team-school">Manhattan University</p>
         </div>
 
-        <div class="portfolio-hover-container">
-          <a href="https://www.mobyrobotics.com/" target="_blank" class="portfolio-hover-link">
-            <div class="portfolio-image-wrapper">
-              <img src="./img/portfolio-mobyrobotics.png" alt="Moby Robotics" class="portfolio-image">
-              <div class="portfolio-hover-cover">
-                <div class="portfolio-hover-text">
-                  <strong>MOBY Robotics</strong><br>
-                  AI-powered ocean technology for sustainable and scalable critical mineral collection.
-                </div>
-              </div>
-            </div>
-          </a>
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/alexkardovich/" target="_blank" class="team-name">
+                Alex Kardovich
+            </a>
+            <p class="team-role">Director of Growth</p>
+            <p class="team-school">UCLA</p>
         </div>
-      </div>
+
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/juliayhchu/" target="_blank" class="team-name">
+                Julia Chu
+            </a>
+            <p class="team-role">Director of Marketing</p>
+            <p class="team-school">UC Irvine</p>
+        </div>
+
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/zachary-dering-403724210/" target="_blank" class="team-name">
+                Zachary Dering
+            </a>
+            <p class="team-role">Venture Advisor</p>
+            <p class="team-school">NYU</p>
+        </div>
+
+        <div class="team-member">
+            <a href="https://www.linkedin.com/in/camille-ching/" target="_blank" class="team-name">
+                Camille Ching
+            </a>
+            <p class="team-role">Campus Ambassador</p>
+            <p class="team-school">Harvard</p>
+        </div>
 
     </div>
-  </div>
-</div>
+</section>
 
-<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
-  <div class="modal-dialog team-modal-wide">
-    <div class="modal-content" style="background:#000000;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="teamModalLabel">Team</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" style="text-align:center;">
-        <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:30px;">Meet our team:</div>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-              <a href="https://www.linkedin.com/in/jeffrey-laederach/" target="_blank" class="portfolio-hover-link">
-                <div class="portfolio-image-wrapper" style="width:220px;">
-                  <img src="./img/jeffrey.png" alt="Jeffrey Laederach" class="portfolio-image" style="width:220px;">
-                  <div class="portfolio-hover-cover">
-                    <div class="portfolio-hover-text">
-                      <strong>Jeffrey Laederach</strong><br>
-                      Founder & Director of Operations
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-              <a href="https://www.linkedin.com/in/juliayhchu/" target="_blank" class="portfolio-hover-link">
-                <div class="portfolio-image-wrapper" style="width:220px;">
-                  <img src="./img/julia.png" alt="Julia Chu" class="portfolio-image" style="width:220px;">
-                  <div class="portfolio-hover-cover">
-                    <div class="portfolio-hover-text">
-                      <strong>Julia Chu</strong><br>
-                      Director of Marketing
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-              <a href="https://www.linkedin.com/in/zachary-dering-403724210/" target="_blank" class="portfolio-hover-link">
-                <div class="portfolio-image-wrapper" style="width:220px;">
-                  <img src="./img/zach.png" alt="Zachary Dering" class="portfolio-image" style="width:220px;">
-                  <div class="portfolio-hover-cover">
-                    <div class="portfolio-hover-text">
-                      <strong>Zachary Dering</strong><br>
-                      Venture Advisor
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+<section id="contact">
+    <div class="contact-wrapper">
+
+        <div class="contact-header">
+            <p class="contact-header-eyebrow">Get in touch</p>
+            <h2 class="contact-title">Let's Build Together</h2>
         </div>
-      </div>
+
+        <form 
+            class="contact-form" 
+            id="contact-form"
+            action="https://formspree.io/f/mykrzokn"
+            method="POST"
+            novalidate>
+
+            <!-- NAME -->
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- EMAIL -->
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- INTENT -->
+            <div class="field">
+                <label for="intent">I'm reaching out to</label>
+                <div class="select-wrapper">
+                    <select id="intent" name="intent" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="pitch">Pitch my company</option>
+                        <option value="investor">Join our angel investor network</option>
+                        <option value="advisor">Become an advisor or partner</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- INDUSTRY FOCUS -->
+            <div class="field">
+                <label for="industry-focus">Industry Focus</label>
+                <input type="text" id="industry-focus" name="industry_focus" placeholder="Defense, Energy, Manufacturing, etc." required>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- MESSAGE -->
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us about yourself and what you're building..." required></textarea>
+            </div>
+
+            <!-- SEND -->
+            <div class="send-row">
+                <button type="submit" class="send-btn">
+                    <span>Send Message</span>
+                </button>
+                <p class="send-status" id="send-status"></p>
+            </div>
+
+        </form>
     </div>
-  </div>
-</div>
-</div>
+</section>
 
-<div class="modal fade" id="partnersModal" tabindex="-1" aria-labelledby="partnersModalLabel" aria-hidden="true">
-  <div class="modal-dialog manifesto-modal-wide">
-    <div class="modal-content" style="background:#000000;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="partnersModalLabel">Partners</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <div style="text-align:center; color:#ffffff; font-size:1.1rem; margin-bottom:18px;">We founded and partnered with innovative organizations including:</div>
-        <div class="partners-logos-container">
-          <a href="https://vexergy.com" target="_blank" class="partners-logo-link">
-            <img src="./img/initiative-vexergy.png" alt="Vexergy" class="partners-logo-img" />
-          </a>
-          <a href="https://meplir.com" target="_blank" class="partners-logo-link">
-            <img src="./img/initiative-meplir.png" alt="Meplir" class="partners-logo-img" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<script src="app.js"></script>
 
-<script>
-  const logo = document.getElementById('logo');
-  const popup = document.getElementById('logo-popup');
-  const logoContainer = document.getElementById('logo-container');
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var manifestoLink = document.getElementById('manifesto-link');
-    var portfolioLink = document.getElementById('portfolio-link');
-    var teamLink = document.getElementById('team-link');
-    var partnersLink = document.getElementById('partners-link');
-    var investorsLink = document.getElementById('investors-link');
-    var hamburger = document.getElementById('navbar-hamburger');
-    var navUl = document.querySelector('#main-nav ul');
-
-    // Hamburger menu toggle
-    if (hamburger && navUl) {
-      hamburger.addEventListener('click', function() {
-        if (navUl.classList.contains('show')) {
-          navUl.classList.remove('show');
-        } else {
-          navUl.classList.add('show');
-        }
-      });
-      // Close menu when clicking a navlink (on mobile)
-      navUl.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (window.innerWidth <= 800) navUl.classList.remove('show');
-        });
-      });
-      // Close menu on resize if desktop
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 800) navUl.classList.remove('show');
-      });
-      // Also close menu if clicking outside nav on mobile
-      document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 800 && navUl.classList.contains('show')) {
-          if (!navUl.contains(e.target) && e.target !== hamburger && !hamburger.contains(e.target)) {
-            navUl.classList.remove('show');
-          }
-        }
-      });
-    }
-
-    if (manifestoLink) {
-      manifestoLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        var manifestoModal = new bootstrap.Modal(document.getElementById('manifestoModal'));
-        manifestoModal.show();
-      });
-    }
-    if (portfolioLink) {
-      portfolioLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        var portfolioModal = new bootstrap.Modal(document.getElementById('portfolioModal'));
-        portfolioModal.show();
-      });
-    }
-    if (teamLink) {
-      teamLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        var teamModal = new bootstrap.Modal(document.getElementById('teamModal'));
-        teamModal.show();
-      });
-    }
-    if (partnersLink) {
-      partnersLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        var partnersModal = new bootstrap.Modal(document.getElementById('partnersModal'));
-        partnersModal.show();
-      });
-    }
-    if (investorsLink) {
-      investorsLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        var investorsModal = new bootstrap.Modal(document.getElementById('investorsModal'));
-        investorsModal.show();
-      });
-    }
-  });
-
-  logo.addEventListener('click', (e) => {
-    e.stopPropagation();
-    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
-  });
-
-  // Close popup when clicking outside on mobile
-  document.addEventListener('click', (e) => {
-    if (!logoContainer.contains(e.target) && popup.style.display === 'block') {
-      popup.style.display = 'none';
-    }
-  });
-// Logo hover animation for partners modal
-document.addEventListener('DOMContentLoaded', function() {
-  var logoImgs = document.querySelectorAll('.partners-logo-img');
-  logoImgs.forEach(function(img) {
-    img.addEventListener('mouseenter', function() {
-      img.classList.add('partners-logo-hover');
-    });
-    img.addEventListener('mouseleave', function() {
-      img.classList.remove('partners-logo-hover');
-    });
-  });
-});
-</script>
-
-<div id="infoPanel">
-  <div id="title"></div>
-  <div id="description"></div>
-</div>
-<div id="hoverLabel"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js"></script>
 <script>
   const fontLink = document.createElement('link');
   fontLink.rel = 'stylesheet';
   fontLink.href = 'https://fonts.googleapis.com/css2?family=Space+Mono&display=swap';
   document.head.appendChild(fontLink);
-
-  function getNavbarHeight() {
-    if (window.innerWidth <= 480) return 55;
-    if (window.innerWidth <= 768) return 60;
-    return 100;
-  }
-
-  let NAVBAR_HEIGHT = getNavbarHeight();
-
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#000000');
-
-  const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
-  // Increase camera frustum on mobile for better visibility
-  const d = window.innerWidth <= 768 ? 4.5 : 3;
-  const camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 1, 100);
-  camera.position.set(3, 3, 5);
-  camera.lookAt(0, 0, 0);
-  scene.add(camera);
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight - NAVBAR_HEIGHT);
-  renderer.shadowMap.enabled = true;
-  renderer.domElement.style.marginTop = NAVBAR_HEIGHT + 'px'; // push canvas below navbar
-  document.body.appendChild(renderer.domElement);
-
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); 
-  scene.add(ambientLight);
-
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-  directionalLight.position.set(0, 0, 5); 
-  directionalLight.castShadow = true;
-  directionalLight.shadow.mapSize.width = 1024;
-  directionalLight.shadow.mapSize.height = 1024;
-  scene.add(directionalLight);
-
-  const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
-  const cubeMaterial = new THREE.MeshStandardMaterial({
-    color: 0xd5d5d5,
-    transparent: true,
-    opacity: window.innerWidth <= 768 ? 0.15 : 0.4,
-  });
-  const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-  cube.position.set(-2, 0, 0);
-  cube.receiveShadow = true;
-  scene.add(cube);
-
-  const menuItems = [
-    { title: "Energy", description: "Powering the energy transition to achieve a world of sustainable abundance." },
-    { title: "Mining", description: "Supporting the responsible extraction of critical minerals and resources." },
-    { title: "Agriculture", description: "Fostering innovation in the agricultural sector to feed society's future." },
-    { title: "Manufacturing", description: "Advancing breakthroughs in processing and manufacturing across industries." },
-    { title: "Logistics", description: "Securing global supply chains to bolster free trade and economic growth." },
-    { title: "Defense", description: "Protecting the ideals of democracy, freedom, capitalism, and the West." },
-  ];
-
-  const prismWidth = 1.8, prismLength = 1.8, prismHeight = 0.2;
-  const prismGeometry = new THREE.BoxGeometry(prismWidth, prismHeight, prismLength);
-  const prisms = [];
-
-  const totalPrismHeight = menuItems.length * prismHeight;
-  const gapSpaceAvailable = 2 - totalPrismHeight;
-  const gapBetweenPrisms = gapSpaceAvailable / (menuItems.length + 1);
-
-  let currentY = -0.85 + gapBetweenPrisms / 2;
-
-  menuItems.forEach((item, index) => {
-    const prismMaterial = new THREE.MeshStandardMaterial({ 
-        color: 0x888888,
-        roughness: 0.3,
-        metalness: 0.0,
-    });
-    const prism = new THREE.Mesh(prismGeometry, prismMaterial);
-    prism.castShadow = true;
-    prism.receiveShadow = true;
-
-    prism.position.set(-2, currentY + index * (prismHeight + gapBetweenPrisms), 0);
-    prism.userData = {
-        title: item.title,
-        description: item.description,
-        initialPosition: prism.position.clone(),
-        targetPosition: new THREE.Vector3(0, prism.position.y, 0),
-        defaultColor: 0x888888,
-        activeColor: 0xffffff
-    };
-    scene.add(prism);
-    prisms.push(prism);
-  });
-
-  let activePrism = null;
-
-  function animate() {
-    requestAnimationFrame(animate);
-
-    prisms.forEach(prism => {
-      if (prism === activePrism) {
-        prism.position.lerp(prism.userData.targetPosition, 0.05);
-        prism.material.color.setHex(prism.userData.activeColor);
-      } else {
-        prism.position.lerp(prism.userData.initialPosition, 0.05);
-        prism.material.color.setHex(prism.userData.defaultColor);
-      }
-    });
-
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  const hoverLabel = document.getElementById('hoverLabel');
-  window.addEventListener('mousemove', (event) => {
-    const mouse = new THREE.Vector2();
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -((event.clientY - NAVBAR_HEIGHT) / (window.innerHeight - NAVBAR_HEIGHT)) * 2 + 1;
-
-    const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(mouse, camera);
-
-    const intersects = raycaster.intersectObjects(prisms);
-
-    if (intersects.length > 0) {
-      const hoveredPrism = intersects[0].object;
-      hoverLabel.style.display = 'block';
-      hoverLabel.style.left = event.clientX + 10 + 'px';
-      hoverLabel.style.top = event.clientY + 10 + 'px';
-      hoverLabel.textContent = hoveredPrism.userData.title;
-    } else {
-      hoverLabel.style.display = 'none';
-    }
-  });
-
-  function handleInteraction(clientX, clientY) {
-    const mouse = new THREE.Vector2();
-    mouse.x = (clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -((clientY - NAVBAR_HEIGHT) / (window.innerHeight - NAVBAR_HEIGHT)) * 2 + 1;
-
-    const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(mouse, camera);
-
-    const intersects = raycaster.intersectObjects(prisms);
-    const infoPanel = document.getElementById('infoPanel');
-    const titleDiv = document.getElementById('title');
-    const descriptionDiv = document.getElementById('description');
-
-    if (intersects.length > 0) {
-      const clickedPrism = intersects[0].object;
-      activePrism = (activePrism === clickedPrism) ? null : clickedPrism;
-
-      if (activePrism) {
-        titleDiv.textContent = clickedPrism.userData.title;
-        descriptionDiv.textContent = clickedPrism.userData.description;
-        infoPanel.classList.add('active');
-      } else {
-        titleDiv.textContent = "";
-        descriptionDiv.textContent = "";
-        infoPanel.classList.remove('active');
-      }
-    } else {
-      activePrism = null;
-      titleDiv.textContent = "";
-      descriptionDiv.textContent = "";
-      infoPanel.classList.remove('active');
-    }
-  }
-
-  window.addEventListener('click', (event) => {
-    handleInteraction(event.clientX, event.clientY);
-  });
-
-  window.addEventListener('touchend', (event) => {
-    if (event.changedTouches.length > 0) {
-      const touch = event.changedTouches[0];
-      // Check if touch is in the 3D canvas area (not navbar or other UI)
-      if (touch.clientY > NAVBAR_HEIGHT) {
-        handleInteraction(touch.clientX, touch.clientY);
-      }
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    NAVBAR_HEIGHT = getNavbarHeight();
-    const aspect = window.innerWidth / (window.innerHeight - NAVBAR_HEIGHT);
-    const newD = window.innerWidth <= 768 ? 4.5 : 3;
-    camera.left = -newD * aspect;
-    camera.right = newD * aspect;
-    camera.top = newD;
-    camera.bottom = -newD;
-    camera.updateProjectionMatrix();
-
-    // Adjust cube opacity based on screen size
-    cube.material.opacity = window.innerWidth <= 768 ? 0.15 : 0.4;
-
-    renderer.setSize(window.innerWidth, window.innerHeight - NAVBAR_HEIGHT);
-    renderer.domElement.style.marginTop = NAVBAR_HEIGHT + 'px';
-  });
 </script>
 
-<div class="modal fade" id="investorsModal" tabindex="-1" aria-labelledby="investorsModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="background:#000000;">
-            <div class="modal-header">
-                <h3 class="modal-title" id="investorsModalLabel">Join the Forwards Fund Angel Investor Network</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Are you an SEC-accredited investor who would like access to our private database of revolutionary deep tech startups and founders? Forwards Fund is actively partnering with angel investors and VC firms to raise a war chest of private capital to deploy to the founders, startups, and missions we believe in. Reach out to us with this form or email <strong>investors@forwardsfund.com</strong></p>
-                <form action="https://formspree.io/f/xgvkdron" method="POST">
-                    <div class="mb-3">
-                        <label for="name" class="form-label" style="font-size: 1.5rem;">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label" style="font-size: 1.5rem;">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="subject" class="form-label" style="font-size: 1.5rem;">Subject:</label>
-                        <input type="text" class="form-control" id="subject" name="subject" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label" style="font-size: 1.5rem;">Message:</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-brand">Send</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<script>
+const hamburger = document.getElementById('navbar-hamburger');
+const navMenu = document.querySelector('#main-nav ul');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+});
+</script>
 
 <footer>
-  <div class="social-media-icons">
+<div class="social-media-icons">
     <a href="https://www.linkedin.com/company/forwardsfund"><i class="bi bi-linkedin"></i></a>
     <a href="https://x.com/forwardsfund"><i class="bi bi-twitter-x"></i></a>
     <a href="https://github.com/forwardsfund"><i class="bi bi-github"></i></a>
     <a href="https://www.youtube.com/@forwardsfund"><i class="bi bi-youtube"></i></a>
     <a href="https://substack.com/@forwardsfund"><i class="bi bi-substack"></i></a>
-  </div>
-  <p class="footer-locations">New York City, NY | Los Angeles, CA | Huntsville, AL</p>
-  <p class="footer-copy">© 2026 Forwards Fund. All Rights Reserved.</p>
+</div>
+<p class="footer-locations">New York City, NY | Los Angeles, CA | Huntsville, AL</p>
+<p class="footer-copy">© 2026 Forwards Fund. All Rights Reserved.</p>
 </footer>
 
 <style>
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  pointer-events: none;
+  height: 100px;
+  background: #000000;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 /* Left Icons */
 .social-media-icons {
-  position: fixed;
+  position: absolute;
   bottom: 15px;
   left: 20px;
   display: flex;
@@ -990,7 +399,7 @@ footer {
 
 /* Center Locations */
 .footer-locations {
-  position: fixed;
+  position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
@@ -1004,7 +413,7 @@ footer {
 
 /* Right Copyright */
 .footer-copy {
-  position: fixed;
+  position: absolute;
   bottom: 10px;
   right: 20px;
   color: #ffffff;
@@ -1027,7 +436,6 @@ footer {
     font-size: 1.2rem;
   }
 
-  /* Hide locations on tablet & smaller */
   .footer-locations {
     display: none;
   }
@@ -1051,7 +459,6 @@ footer {
     font-size: 1.1rem;
   }
 
-  /* Still hidden on mobile */
   .footer-locations {
     display: none;
   }
@@ -1063,175 +470,6 @@ footer {
   }
 }
 
-    .partners-logos-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .partners-logo-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s;
-      border-radius: 12px;
-      padding: 8px;
-    }
-    .partners-logo-img {
-      max-width: 160px;
-      width: 100%;
-      height: auto;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-    }
-    .partners-logo-hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-    }
-    @media (max-width: 800px) {
-      .partners-logos-container {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .partners-logo-img {
-        max-width: 80vw;
-      }
-    }
-
-.modal-content {
-  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
-  color: #ffffff;
-  font-family: 'Space Mono', monospace;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.8);
-}
-.modal-header {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 1.25rem 1.5rem;
-}
-.modal-title {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1.75rem;
-}
-.modal-body {
-  padding: 1.5rem;
-}
-.btn-close {
-  filter: invert(1);
-  opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.btn-close:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-.btn-close:focus {
-  outline: 0;
-  box-shadow: none;
-}
-.modal-body label {
-  color: #e0e0e0;
-  font-weight: 500;
-}
-.modal-body .form-control {
-  background-color: #0f0f0f;
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 6px;
-  padding: 0.75rem;
-  transition: all 0.3s ease;
-  font-family: 'Space Mono', monospace;
-}
-.modal-body .form-control:focus {
-  background-color: #141414;
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.4);
-  box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
-}
-.modal-body .form-control::placeholder {
-  color: rgba(255,255,255,0.3);
-}
-.btn-brand {
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-  color: #000000;
-  font-family: 'Space Mono', monospace;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
-}
-.btn-brand:hover {
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  color: #000000;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,255,255,0.3);
-}
-.btn-brand:active {
-  transform: translateY(0);
-}
-
-@media (max-width: 576px) {
-  .modal-dialog {
-    margin: 0.5rem;
-  }
-  .modal-title {
-    font-size: 1.3rem;
-  }
-  .modal-body label {
-    font-size: 1.1rem;
-  }
-  .modal-body .form-control {
-    font-size: 13px;
-    padding: 0.6rem;
-  }
-  .btn-brand {
-    font-size: 13px;
-    padding: 10px 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-dialog {
-    margin: 0.25rem;
-  }
-  .modal-title {
-    font-size: 1.2rem;
-  }
-  .modal-body {
-    padding: 1rem;
-  }
-  .modal-body label {
-    font-size: 1rem;
-  }
-  .modal-body .form-control {
-    font-size: 12px;
-    padding: 0.5rem;
-  }
-  .btn-brand {
-    font-size: 12px;
-    padding: 8px 16px;
-  }
-}
-
-.portfolio-image {
-  width: 100%;
-  max-width: 800px;
-  transition: transform 0.25s ease;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.portfolio-image:hover {
-  transform: scale(1.05);
-}
 </style>
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
