@@ -1,13 +1,19 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash');
 
-    // Disable scrolling
     document.body.classList.add('no-scroll');
 
     setTimeout(() => {
         splash.style.display = 'none';
         document.body.classList.remove('no-scroll');
-    }, 4300); // fadeIn + delay + fadeOut total time
+
+        document.getElementById('home').scrollIntoView({ behavior: 'auto' });
+    }, 4300);
 });
 
 const hamburger = document.querySelector('#navbar-hamburger');
