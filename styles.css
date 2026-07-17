@@ -1,10 +1,17 @@
- /* GLOBAL RESET */
+ /* GLOBAL  */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Space Mono', monospace;
+}
+
+html, body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
  /* SPLASH */
