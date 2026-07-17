@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash');
+
+    // Disable scrolling
+    document.body.classList.add('no-scroll');
+
+    setTimeout(() => {
+        splash.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }, 4300); // fadeIn + delay + fadeOut total time
+});
+
 const hamburger = document.querySelector('#navbar-hamburger');
 const mobileMenu = document.querySelector('#main-nav ul');
 
