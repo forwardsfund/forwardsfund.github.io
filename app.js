@@ -37,7 +37,23 @@ function setTheme(bgImage) {
     heroImage.style.backgroundImage = `url('${bgImage}')`;
 }
 
-// CONTACT FORM:
+// MANIFESTO SCROLL REVEAL
+ 
+const manifestoRows = document.querySelectorAll('.manifesto-row');
+ 
+if (manifestoRows.length) {
+    const manifestoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.2 });
+ 
+    manifestoRows.forEach(row => manifestoObserver.observe(row));
+}
+
+// CONTACT FORM
 
 const intentSelect = document.getElementById('intent');
 if (intentSelect) {
