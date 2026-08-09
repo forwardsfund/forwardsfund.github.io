@@ -181,7 +181,7 @@ body.no-scroll {
     height: 90vh;
     background-image:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('img/hero.png');
+        url('img/forwardsfund_hero.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
