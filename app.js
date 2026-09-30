@@ -37,20 +37,46 @@ function setTheme(bgImage) {
     heroImage.style.backgroundImage = `url('${bgImage}')`;
 }
 
-// MANIFESTO SCROLL REVEAL
- 
-const manifestoRows = document.querySelectorAll('.manifesto-row');
- 
-if (manifestoRows.length) {
+// MANIFESTO SCROLL REVEAL (staggered)
+
+const manifestoCards = document.querySelectorAll('.manifesto-card');
+
+if (manifestoCards.length) {
+    manifestoCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.15}s`;
+    });
+
     const manifestoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
             }
         });
+    }, {
+        threshold: 0.15
+    });
+
+    manifestoCards.forEach(card => {
+        manifestoObserver.observe(card);
+    });
+}
+
+// TEAM SCROLL REVEAL (staggered)
+ 
+const teamMembers = document.querySelectorAll('.team-member');
+ 
+if (teamMembers.length) {
+    const teamObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+                entry.target.style.transitionDelay = `${index * 0.1}s`;
+                entry.target.classList.add('in-view');
+            }
+        });
     }, { threshold: 0.2 });
  
-    manifestoRows.forEach(row => manifestoObserver.observe(row));
+    teamMembers.forEach(el => teamObserver.observe(el));
 }
 
 // CONTACT FORM
