@@ -82,6 +82,7 @@ if (teamMembers.length) {
 // CONTACT FORM
 
 const intentSelect = document.getElementById('intent');
+
 if (intentSelect) {
     intentSelect.addEventListener('change', function () {
         this.classList.add('chosen');
@@ -91,7 +92,9 @@ if (intentSelect) {
 const contactFormWidget = document.getElementById('contact-form');
 
 if (contactFormWidget) {
+
     contactFormWidget.addEventListener('submit', async function (e) {
+
         e.preventDefault();
 
         const status = document.getElementById('send-status');
@@ -118,17 +121,50 @@ if (contactFormWidget) {
         btn.disabled = true;
         btn.querySelector('span').textContent = 'Sending...';
         status.className = 'send-status';
+        status.textContent = '';
 
-        await new Promise(r => setTimeout(r, 1200));
+        try {
 
-        status.textContent = "Message successfully sent — we'll be in touch with you within two weeks.";
-        status.className = 'send-status visible success';
+            const response = await fetch(contactFormWidget.action, {
+                method: 'POST',
+                body: new FormData(contactFormWidget),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-        btn.querySelector('span').textContent = 'Send Message';
+            if (response.ok) {
+
+                status.textContent =
+                    "Message successfully sent. We'll be in touch with you within two weeks.";
+
+                status.className = 'send-status visible success';
+
+                contactFormWidget.reset();
+
+                if (intentSelect) {
+                    intentSelect.classList.remove('chosen');
+                }
+
+            } else {
+
+                status.textContent =
+                    'Something went wrong. Please try again later.';
+
+                status.className = 'send-status visible error';
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            status.textContent =
+                'Network error. Please try again later.';
+
+            status.className = 'send-status visible error';
+        }
+
         btn.disabled = false;
-
-        this.reset();
-
-        document.getElementById('intent').classList.remove('chosen');
+        btn.querySelector('span').textContent = 'Send Message';
     });
 }
